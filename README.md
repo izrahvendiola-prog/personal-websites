@@ -15,11 +15,15 @@ no frameworks, no build step, no jQuery.
   staggered card groups — all gated behind `prefers-reduced-motion`.
 - **Page transitions** — cross-document View Transitions where supported, quick fade-out
   fallback otherwise.
-- **Creative details** — a flat phosphor-terminal design system: Space Grotesk ×
-  DM Sans × JetBrains Mono, phosphor green (P1) + amber (P3) accents on hard edges
-  and 1px borders (no gradients, no glow), a viewfinder-framed portrait with corner
-  brackets, a scrolling marquee, a terminal-style "now" panel, subtle CRT scanlines
-  on dark mode, an engineering-grid texture and a blinking caret.
+- **Creative details** — a brutalist-editorial design system adapted from the
+  Finguard reference: the whole page as one rounded card on the background, a
+  consistent solid dark header bar, alternating dark/light full-bleed bands, huge
+  condensed uppercase display type (Anton × DM Sans × JetBrains Mono), numbered
+  feature rows with an overlapping "Currently" card, a tilted portrait photo,
+  a numbered steps rail, flat sparkle accents, static project image tiles and a
+  purple CTA/footer band with giant brand text. Izrah's palette throughout:
+  purple `#A855F7` / pink `#E9A5C9` / amber `#FFC857` on black & white — flat
+  colors only, no gradients, no glassmorphism.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.
@@ -47,9 +51,8 @@ personal-websites/
 │   │   └── animations.js      # Scroll reveals, parallax, page transitions
 │   └── images/
 │       ├── favicon.svg
-│       ├── profile.svg        # Portrait placeholder (swap for your photo)
-│       ├── projects/          # project-1.svg … project-6.svg placeholders
-│       └── backgrounds/       # dot-grid.svg texture
+│       ├── profile.webp       # Portrait photo (swap for your own)
+│       └── projects/          # project-1.svg … project-6.svg placeholders
 │
 └── README.md
 ```
@@ -71,10 +74,10 @@ No build step required. Either:
 
 | What | Where |
 |------|-------|
-| Colors (phosphor green / amber), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
+| Colors (purple / pink / amber), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
 | Fonts | The Google Fonts `<link>` in each page's `<head>` + the `--font-*` variables |
 | Theme storage key | `assets/js/main.js` → `THEME_KEY` |
-| Portrait photo | Replace `assets/images/profile.svg` with your own image (any ratio ~4:5 works; arch shape comes from CSS) |
+| Portrait photo | Replace `assets/images/profile.webp` with your own image (displayed at ~4:5, face near the top works best) |
 | Project thumbnails | Replace files in `assets/images/projects/` |
 | Social links | Search each page for `github.com` / `linkedin.com` / `instagram.com` and point them at real profiles |
 | Email address | Replace `hello@izrahvendiola.com` everywhere (it's a placeholder) |
@@ -100,11 +103,11 @@ await fetch("https://formspree.io/f/yourFormId", {
 - HTML5, CSS3, vanilla JavaScript (ES2017+, no dependencies)
 - [Bootstrap 5.3](https://getbootstrap.com/) — grid, collapse, modal, accordion, toast
 - [Bootstrap Icons](https://icons.getbootstrap.com/) 1.11
-- Google Fonts — Space Grotesk, DM Sans, JetBrains Mono
+- Google Fonts — Anton, DM Sans, JetBrains Mono
 
 ## ♿ Accessibility notes
 
-- `prefers-reduced-motion` disables reveals, marquee, parallax and the circle reveal.
+- `prefers-reduced-motion` disables reveals, floating sparkles and the circle reveal.
 - Decorative elements are `aria-hidden`; icon-only links/buttons carry `aria-label`s.
 - Color contrast was checked for both themes; `color-scheme` keeps native controls themed.
 - All content is reachable without JavaScript (animations simply don't run).

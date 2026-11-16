@@ -40,7 +40,7 @@
   function applyTheme(theme) {
     doc.setAttribute("data-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#0B0D0B" : "#F4F3EE");
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#121212" : "#F9F7F4");
     const toggle = document.getElementById("themeToggle");
     if (toggle) toggle.setAttribute("aria-pressed", String(theme === "dark"));
   }

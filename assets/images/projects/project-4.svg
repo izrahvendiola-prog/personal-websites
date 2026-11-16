@@ -1,32 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Pixel Garden preview">
-  <defs>
-    <pattern id="g4" width="80" height="80" patternUnits="userSpaceOnUse">
-      <path d="M80 0H0V80" fill="none" stroke="#1B231B" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="900" fill="#0E120E"/>
-  <rect width="1200" height="900" fill="url(#g4)"/>
-  <circle cx="1050" cy="140" r="70" fill="none" stroke="#FFB454" stroke-width="4"/>
-  <circle cx="1050" cy="140" r="14" fill="#FFB454"/>
-  <rect x="140" y="96" width="150" height="44" rx="2" fill="#1E2A1E"/>
-  <rect x="196" y="66" width="110" height="50" rx="2" fill="#16241B"/>
-  <g>
-    <rect x="250" y="270" width="140" height="140" fill="#1E3A2A"/>
-    <rect x="410" y="270" width="140" height="140" fill="#2E5B3F"/>
-    <rect x="570" y="270" width="140" height="140" fill="#16241B"/>
-    <rect x="730" y="270" width="140" height="140" fill="#2E5B3F"/>
-    <rect x="250" y="430" width="140" height="140" fill="#3EF08A"/>
-    <rect x="410" y="430" width="140" height="140" fill="#16241B"/>
-    <rect x="570" y="430" width="140" height="140" fill="#1E3A2A"/>
-    <rect x="730" y="430" width="140" height="140" fill="#FFB454"/>
-    <rect x="250" y="590" width="140" height="140" fill="#2E5B3F"/>
-    <rect x="410" y="590" width="140" height="140" fill="#16241B"/>
-    <rect x="570" y="590" width="140" height="140" fill="#1E3A2A"/>
-    <rect x="730" y="590" width="140" height="140" fill="#16241B"/>
+  <rect width="1200" height="900" fill="#F6F1FA"/>
+  <circle cx="1050" cy="140" r="70" fill="#FFC857"/>
+  <circle cx="1050" cy="140" r="94" fill="none" stroke="#FFC857" stroke-width="3" opacity="0.5"/>
+  <g fill="#FFFFFF">
+    <rect x="150" y="96" width="150" height="44" rx="22"/>
+    <rect x="196" y="66" width="110" height="50" rx="25"/>
   </g>
-  <path d="M640 430 v-66" stroke="#E6EFE4" stroke-width="8" stroke-linecap="round"/>
-  <path d="M640 376 c -36 -6 -50 -30 -48 -56 c 32 2 50 24 48 56 z" fill="#3EF08A"/>
-  <path d="M640 356 c 36 -6 50 -30 48 -56 c -32 2 -50 24 -48 56 z" fill="#3EF08A"/>
-  <rect x="944" y="222" width="24" height="24" fill="#3EF08A" transform="rotate(45 956 234)"/>
-  <rect x="164" y="714" width="20" height="20" fill="#FFB454" transform="rotate(45 174 724)"/>
+  <g>
+    <rect x="250" y="270" width="140" height="140" rx="22" fill="#D8B4FE"/>
+    <rect x="410" y="270" width="140" height="140" rx="22" fill="#A855F7"/>
+    <rect x="570" y="270" width="140" height="140" rx="22" fill="#E9A5C9"/>
+    <rect x="730" y="270" width="140" height="140" rx="22" fill="#C084FC"/>
+    <rect x="250" y="430" width="140" height="140" rx="22" fill="#FFC857"/>
+    <rect x="410" y="430" width="140" height="140" rx="22" fill="#C084FC"/>
+    <rect x="570" y="430" width="140" height="140" rx="22" fill="#E9D5FF"/>
+    <rect x="730" y="430" width="140" height="140" rx="22" fill="#E9A5C9"/>
+    <rect x="250" y="590" width="140" height="140" rx="22" fill="#A855F7"/>
+    <rect x="410" y="590" width="140" height="140" rx="22" fill="#E9A5C9"/>
+    <rect x="570" y="590" width="140" height="140" rx="22" fill="#D8B4FE"/>
+    <rect x="730" y="590" width="140" height="140" rx="22" fill="#E9D5FF"/>
+  </g>
+  <path d="M640 430 v-66" stroke="#A855F7" stroke-width="8" stroke-linecap="round"/>
+  <path d="M640 376 c -36 -6 -50 -30 -48 -56 c 32 2 50 24 48 56 z" fill="#E9A5C9"/>
+  <path d="M640 356 c 36 -6 50 -30 48 -56 c -32 2 -50 24 -48 56 z" fill="#FFC857"/>
+  <path d="M944 212 C947 226 957 236 971 239 C957 242 947 252 944 266 C941 252 931 242 917 239 C931 236 941 226 944 212 Z" fill="#E9A5C9"/>
+  <path d="M170 714 C173 728 183 738 197 741 C183 744 173 754 170 768 C167 754 157 744 143 741 C157 738 167 728 170 714 Z" fill="#A855F7"/>
 </svg>

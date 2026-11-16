@@ -6,7 +6,7 @@
   <title>About — Izrah Vendiola</title>
   <meta name="description" content="Who is Izrah Vendiola? The story, values and everyday curiosities behind this little corner of the internet.">
   <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
-  <meta name="theme-color" content="#F4F3EE">
+  <meta name="theme-color" content="#F9F7F4">
 
   <!-- Set theme before first paint to avoid a flash of the wrong mode -->
   <script>
@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/responsive.css">
@@ -37,38 +37,49 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ========== Navigation ========== -->
-  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav" aria-label="Main navigation">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">izrah<span class="brand-dot">.</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-        <div class="d-flex align-items-center nav-actions">
-          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme" aria-pressed="false">
-            <i class="bi bi-moon-stars icon-moon" aria-hidden="true"></i>
-            <i class="bi bi-sun icon-sun" aria-hidden="true"></i>
-          </button>
-          <a class="btn btn-accent" href="contact.html">Let's Talk <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+  <div class="page-frame">
+    <!-- ========== Consistent header bar ========== -->
+    <nav class="navbar navbar-expand-lg site-header" id="siteNav" aria-label="Main navigation">
+      <div class="container-xxl header-inner">
+        <a class="navbar-brand" href="../index.html">izrah<span class="brand-dot">.</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+          aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <div class="d-flex align-items-center nav-actions">
+            <div class="nav-socials d-none d-lg-inline-flex" aria-label="Social media">
+              <a class="social-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="bi bi-github" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="bi bi-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme" aria-pressed="false">
+              <i class="bi bi-moon-stars icon-moon" aria-hidden="true"></i>
+              <i class="bi bi-sun icon-sun" aria-hidden="true"></i>
+            </button>
+            <a class="btn btn-accent" href="contact.html">Let's Talk <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <main id="main">
     <!-- ========== Page hero ========== -->
-    <header class="page-hero">
-      <div class="dots" aria-hidden="true"></div>
-      <div class="container">
+    <header class="page-hero band-dark">
+      <div class="page-hero-inner">
         <span class="eyebrow" data-animate="fade-up">About me</span>
         <h1 data-animate="fade-up" data-delay="90">
           Hi, I'm Izrah — <span class="mark">curious</span> by default.
@@ -85,13 +96,9 @@
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-5">
-            <figure class="portrait-frame mx-auto" style="width: min(20rem, 78vw);" data-animate="slide-right" data-parallax="14">
-              <img class="portrait" src="../assets/images/profile.svg"
-                alt="Flat phosphor-style portrait placeholder of Izrah Vendiola" width="800" height="1000" loading="lazy">
-              <figcaption class="portrait-caption">
-                <span>portrait: izrah</span>
-                <span class="now-caret" aria-hidden="true"></span>
-              </figcaption>
+            <figure class="hero-figure about-figure mx-auto mb-0" data-animate="scale-in">
+              <img class="portrait" src="../assets/images/profile.webp"
+                alt="Portrait photo of Izrah Vendiola" width="1080" height="1920" loading="lazy">
             </figure>
           </div>
           <div class="col-lg-7">
@@ -234,19 +241,20 @@
     </section>
 
     <!-- ========== Call to action ========== -->
-    <section class="section section-cta" aria-labelledby="cta-title">
-      <div class="container">
-        <div class="cta-card" data-animate="scale-in">
-          <span class="eyebrow" data-animate="fade-up">Your turn</span>
-          <h2 class="cta-title" id="cta-title" data-animate="fade-up" data-delay="80">
-            Enough about me — <span class="mark-on-dark">what about you?</span>
-          </h2>
-          <p class="cta-text" data-animate="fade-up" data-delay="160">
-            I'd love to hear what you're curious about. Come say hi, swap ideas,
-            or pitch a collaboration.
-          </p>
-          <a class="btn btn-on-accent" href="contact.html" data-animate="fade-up" data-delay="240">
-            Let's talk <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    <section class="band-cta section-cta" aria-labelledby="cta-title">
+      <div class="container-xxl">
+        <span class="eyebrow" data-animate="fade-up">Your turn</span>
+        <h2 class="cta-title" id="cta-title" data-animate="fade-up" data-delay="80">
+          Enough about me — <span class="mark-on-dark">what about you?</span>
+        </h2>
+        <p class="cta-text" data-animate="fade-up" data-delay="160">
+          I'd love to hear what you're curious about. Come say hi, swap ideas,
+          or pitch a collaboration.
+        </p>
+        <div class="d-flex justify-content-center align-items-center gap-3" data-animate="fade-up" data-delay="240">
+          <a class="btn btn-light" href="contact.html">Let's talk <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn-circle" href="contact.html" aria-label="Go to the contact page">
+            <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -298,6 +306,7 @@
       </div>
     </div>
   </footer>
+  </div>
 
   <button class="back-top" type="button" aria-label="Back to top">
     <i class="bi bi-arrow-up" aria-hidden="true"></i>

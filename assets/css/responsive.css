@@ -6,31 +6,35 @@
 
 /* ---------- Tablet & below: collapsed navigation ---------- */
 @media (max-width: 991.98px) {
-  :root {
-    --nav-height: 68px;
-  }
-
-  /* Turn the collapsed menu into a floating panel */
-  .site-nav .navbar-collapse {
+  /* The solid header grows a white dropdown card when the menu opens */
+  .site-header .navbar-collapse {
     background: var(--clr-surface);
-    border: 1px solid var(--clr-border-strong);
-    border-radius: var(--radius-md);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     padding: 1.1rem 1.4rem 1.4rem;
     margin-top: 0.9rem;
     transition: background-color var(--dur-med) ease,
       border-color var(--dur-med) ease;
   }
 
-  .site-nav .nav-link {
+  .site-header .nav-link {
+    color: var(--clr-text-soft);
     padding: 0.7rem 0.2rem;
     font-size: 1.02rem;
   }
 
-  .site-nav .nav-link::after {
+  .site-header .nav-link:hover,
+  .site-header .nav-link.active {
+    color: var(--clr-accent);
+  }
+
+  .site-header .nav-link::after {
     left: 0.2rem;
     right: auto;
     width: 2.2rem;
     bottom: 0.4rem;
+    background: var(--clr-accent);
   }
 
   .nav-actions {
@@ -41,24 +45,44 @@
     justify-content: space-between;
   }
 
-  .hero {
-    min-height: 0;
+  .nav-socials {
+    border-inline-end: 0;
+    padding-inline-end: 0;
   }
 
-  .hero-visual {
-    margin-top: 3.25rem;
+  .nav-socials .social-btn {
+    color: var(--clr-text-soft);
   }
 
-  .now-panel {
-    margin-top: 2.75rem;
+  .nav-socials .social-btn:hover {
+    color: var(--clr-on-accent);
+  }
+
+  /* Hero stacks: headline, copy, portrait, steps rail */
+  .hero-figure {
+    margin-block: 2.25rem;
+  }
+
+  .hero-steps {
+    margin-top: 1rem;
+  }
+
+  .step p {
     max-width: none;
+  }
+
+  /* The overlapping card settles below the rows */
+  .now-panel.overlap {
+    position: static;
+    transform: none;
+    margin: 1.5rem clamp(1.5rem, 4vw, 3.25rem) 0 auto;
   }
 }
 
 /* ---------- Large phones / small tablets ---------- */
 @media (max-width: 767.98px) {
-  .hero-title {
-    margin-bottom: 1rem;
+  .hero-line {
+    font-size: clamp(2.2rem, 9.5vw, 3rem);
   }
 
   .hero-cta .btn {
@@ -68,8 +92,12 @@
     align-items: center;
   }
 
-  .portrait-frame {
-    width: min(19rem, 80vw);
+  .hero-figure .portrait {
+    width: min(16rem, 74vw);
+  }
+
+  .section-head.split {
+    grid-template-columns: 1fr;
   }
 
   .card-media {
@@ -81,7 +109,7 @@
   }
 
   .timeline-item::before {
-    left: calc(-1.7rem + 0.32rem - 4px);
+    left: calc(-1.7rem + 0.32rem - 6px);
   }
 
   .back-top {
@@ -97,6 +125,18 @@
 
 /* ---------- Phones ---------- */
 @media (max-width: 575.98px) {
+  :root {
+    --frame-gap: 10px;
+  }
+
+  .page-frame {
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-figure .portrait {
+    width: min(15rem, 78vw);
+  }
+
   .hero-socials .social-btn {
     width: 2.3rem;
     height: 2.3rem;
@@ -109,8 +149,25 @@
   }
 
   .btn {
-    padding: 0.62rem 1.1rem;
-    font-size: 0.78rem;
+    padding: 0.66rem 1.3rem;
+    font-size: 0.92rem;
+  }
+
+  .btn-circle {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .feature-row {
+    grid-template-columns: 2.6rem minmax(0, 1fr) auto;
+    gap: 0.9rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .row-arrow {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 1rem;
   }
 
   .card-x {
@@ -121,11 +178,7 @@
     padding: 1.15rem 1.2rem 1.3rem;
   }
 
-  .cta-card {
-    border-radius: var(--radius-md);
-  }
-
-  .cta-card .btn {
+  .band-cta .btn {
     width: 100%;
     justify-content: center;
   }
@@ -135,6 +188,10 @@
     font-size: 0.7rem;
   }
 
+  .footer-giant {
+    font-size: clamp(3.4rem, 18vw, 5.5rem);
+  }
+
   .toast-container {
     left: 1rem !important;
     right: 1rem;
@@ -142,24 +199,5 @@
 
   .modal-dialog {
     margin: 0.75rem;
-  }
-}
-
-/* ---------- Short desktop screens ---------- */
-@media (min-width: 992px) and (max-height: 760px) {
-  .hero {
-    min-height: 0;
-    padding-top: 2.25rem;
-  }
-
-  .scroll-hint {
-    display: none;
-  }
-}
-
-/* ---------- Extra-wide screens: keep measure comfortable ---------- */
-@media (min-width: 1400px) {
-  .hero-intro {
-    max-width: 36rem;
   }
 }
