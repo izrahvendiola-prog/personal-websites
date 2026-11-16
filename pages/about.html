@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Izrah Vendiola</title>
+  <meta name="description" content="Who is Izrah Vendiola? The story, values and everyday curiosities behind this little corner of the internet.">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <meta name="theme-color" content="#FBF7F1">
+
+  <!-- Set theme before first paint to avoid a flash of the wrong mode -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      var t = null;
+      try { t = localStorage.getItem("izrah-theme"); } catch (e) { /* no storage */ }
+      if (!t) {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark" : "light";
+      }
+      d.setAttribute("data-theme", t);
+      if ("onpagereveal" in document) d.classList.add("vt");
+    })();
+  </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">izrah<span class="brand-dot">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center nav-actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme" aria-pressed="false">
+            <i class="bi bi-moon-stars icon-moon" aria-hidden="true"></i>
+            <i class="bi bi-sun icon-sun" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn-accent" href="contact.html">Let's Talk <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- ========== Page hero ========== -->
+    <header class="page-hero">
+      <div class="dots" aria-hidden="true"></div>
+      <div class="container">
+        <span class="eyebrow" data-animate="fade-up">About me</span>
+        <h1 data-animate="fade-up" data-delay="90">
+          Hi, I'm Izrah — <span class="fancy">curious</span> by default.
+        </h1>
+        <p class="section-lead" data-animate="fade-up" data-delay="180">
+          The long version of who I am, what I value, and what keeps me
+          reaching for one more notebook.
+        </p>
+      </div>
+    </header>
+
+    <!-- ========== My story ========== -->
+    <section class="section pt-4" aria-labelledby="story-title">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <div class="portrait-wrap mx-auto" data-animate="slide-right">
+              <div class="portrait-blob" data-parallax="18" aria-hidden="true"></div>
+              <div class="portrait-frame" style="width: min(20rem, 78vw);">
+                <img class="portrait" src="../assets/images/profile.svg"
+                  alt="Playful portrait placeholder of Izrah Vendiola" width="800" height="1000" loading="lazy">
+              </div>
+              <span class="sticker sticker-2" data-parallax="12">
+                <i class="bi bi-stars" aria-hidden="true"></i> that's me!
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <span class="eyebrow" data-animate="fade-up">My story</span>
+            <h2 class="section-title" id="story-title" data-animate="fade-up" data-delay="80">
+              Once upon a <span class="fancy">"what if..."</span>
+            </h2>
+            <div data-animate="fade-up" data-delay="160">
+              <p class="text-soft mt-3">
+                My story starts the way most curious stories do: with a question.
+                Somewhere between my first "Hello, World!" and my first wobbly webpage,
+                I realized that making things is the best way I know to understand them —
+                and that sharing the messy middle is half the fun.
+              </p>
+              <p class="text-soft">
+                Since then I've been collecting skills the way some people collect stickers:
+                a bit of design here, a bit of code there, a growing pile of half-tested
+                ideas in between. I learn in public, build small, and finish most of what
+                I start (the rest become lessons, which also counts).
+              </p>
+              <p class="text-soft">
+                This website is my semi-portfolio and my playground at once — a place to
+                keep the things I make, the things I'm learning, and the person I'm slowly
+                becoming. If any of that resonates, we'll probably get along great.
+              </p>
+              <p class="fancy" style="font-size: 1.9rem; margin-top: 1.4rem;">— Izrah</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Values ========== -->
+    <section class="section section-soft" aria-labelledby="values-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-animate="fade-up">What I believe</span>
+          <h2 class="section-title" id="values-title" data-animate="fade-up" data-delay="80">
+            Four rules I try to live <span class="fancy">and create</span> by
+          </h2>
+        </div>
+        <div class="row g-4" data-animate-group>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-patch-question" aria-hidden="true"></i></div>
+              <h3 class="card-title">Stay curious</h3>
+              <p>Every "dumb question" is just a smart question in disguise. Ask it anyway.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-heart" aria-hidden="true"></i></div>
+              <h3 class="card-title">Make it personal</h3>
+              <p>The best projects are the ones with a heartbeat — a story, a face, a why.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-megaphone" aria-hidden="true"></i></div>
+              <h3 class="card-title">Share the process</h3>
+              <p>Finished work inspires, but works-in-progress teach. I try to do both.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-flower1" aria-hidden="true"></i></div>
+              <h3 class="card-title">Grow gently</h3>
+              <p>One percent better, one page a day, one small win at a time. It adds up.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Currently ========== -->
+    <section class="section" aria-labelledby="currently-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-animate="fade-up">Right now</span>
+          <h2 class="section-title" id="currently-title" data-animate="fade-up" data-delay="80">
+            A snapshot of my <span class="fancy">present tense</span>
+          </h2>
+          <p class="section-lead" data-animate="fade-up" data-delay="150">
+            Updated whenever I remember — which is itself a work in progress.
+          </p>
+        </div>
+        <div class="row g-4" data-animate-group>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-book" aria-hidden="true"></i></div>
+              <h3 class="card-title">Learning</h3>
+              <p>JavaScript deep-dives, the odd design pattern, and how to keep plants alive.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-hammer" aria-hidden="true"></i></div>
+              <h3 class="card-title">Making</h3>
+              <p>This very website, plus a tiny tool for tracking tiny daily wins.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-journal-bookmark" aria-hidden="true"></i></div>
+              <h3 class="card-title">Reading</h3>
+              <p>Creative non-fiction, design essays and anything with marginalia.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <div class="icon-tile"><i class="bi bi-music-note-beamed" aria-hidden="true"></i></div>
+              <h3 class="card-title">Listening</h3>
+              <p>Lo-fi for focus, film scores for daydreams, everything else for cooking.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Beyond the screen ========== -->
+    <section class="section section-soft" aria-labelledby="beyond-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-animate="fade-up">Beyond the screen</span>
+          <h2 class="section-title" id="beyond-title" data-animate="fade-up" data-delay="80">
+            A few honest <span class="fancy">fun facts</span>
+          </h2>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-2" data-animate-group>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-cup-hot" aria-hidden="true"></i>Coffee-powered</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-headphones" aria-hidden="true"></i>Lo-fi on loop</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-flower2" aria-hidden="true"></i>Plant parent</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-camera" aria-hidden="true"></i>Phone photographer</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-pencil" aria-hidden="true"></i>Doodles everywhere</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-puzzle" aria-hidden="true"></i>Puzzle unwinder</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-bookmarks" aria-hidden="true"></i>Tab hoarder</span>
+          <span class="chip" data-animate="fade-up"><i class="bi bi-cloud-sun" aria-hidden="true"></i>Sunset chaser</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Call to action ========== -->
+    <section class="section section-cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card" data-animate="scale-in">
+          <span class="cta-spark cta-spark-1" aria-hidden="true">✦</span>
+          <span class="cta-spark cta-spark-2" aria-hidden="true">✳</span>
+          <span class="eyebrow" data-animate="fade-up">Your turn</span>
+          <h2 class="cta-title" id="cta-title" data-animate="fade-up" data-delay="80">
+            Enough about me — <span class="fancy" style="color:#fff">what about you?</span>
+          </h2>
+          <p class="cta-text" data-animate="fade-up" data-delay="160">
+            I'd love to hear what you're curious about. Come say hi, swap ideas,
+            or pitch a collaboration.
+          </p>
+          <a class="btn btn-on-accent" href="contact.html" data-animate="fade-up" data-delay="240">
+            Let's talk <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-5">
+          <a class="footer-brand" href="../index.html">izrah<span class="brand-dot">.</span></a>
+          <p class="footer-tagline">A curious mind with a creative side — making things,
+          learning things and sharing the journey.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a class="social-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="bi bi-github" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn" href="mailto:hello@izrahvendiola.com" aria-label="Email Izrah">
+              <i class="bi bi-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 offset-lg-1">
+          <h3 class="footer-heading">Explore</h3>
+          <nav class="d-flex flex-column" aria-label="Footer navigation">
+            <a class="footer-link" href="../index.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Home</a>
+            <a class="footer-link" href="about.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>About</a>
+            <a class="footer-link" href="projects.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Projects</a>
+            <a class="footer-link" href="experience.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Experience</a>
+            <a class="footer-link" href="contact.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Contact</a>
+          </nav>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-heading">Say hello</h3>
+          <a class="footer-link" href="mailto:hello@izrahvendiola.com"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>hello@izrahvendiola.com</a>
+          <p class="footer-tagline mt-2">Open to collaborations, coffee chats and good ideas of any size.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Izrah Vendiola. All curiosity reserved.</p>
+        <p>Made with <i class="bi bi-heart-fill" aria-hidden="true"></i> & vanilla everything.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" type="button" aria-label="Back to top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+  <div id="toastRegion" class="toast-container position-fixed bottom-0 start-0 p-3"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/animations.js"></script>
+</body>
+</html>

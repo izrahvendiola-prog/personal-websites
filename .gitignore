@@ -1,0 +1,33 @@
+# ============================================================
+# izrah. — Personal Website
+# Static site (HTML/CSS/JS, no build step) — keep it lean.
+# ============================================================
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Editors & IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# --- Logs & temp files ---
+*.log
+tmp/
+temp/
+
+# --- Secrets / env files (in case form-service keys are added later) ---
+.env
+.env.*
+
+# --- Dependencies (only relevant if tooling is added later) ---
+node_modules/
+
+# --- Build output (only relevant if a build step is ever added) ---
+dist/

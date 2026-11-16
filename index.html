@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Izrah Vendiola — A curious mind with a creative side</title>
+  <meta name="description" content="The personal corner of the internet of Izrah Vendiola — part journal, part portfolio, all curiosity.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <meta name="theme-color" content="#FBF7F1">
+
+  <!-- Set theme before first paint to avoid a flash of the wrong mode -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      var t = null;
+      try { t = localStorage.getItem("izrah-theme"); } catch (e) { /* no storage */ }
+      if (!t) {
+        t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark" : "light";
+      }
+      d.setAttribute("data-theme", t);
+      /* Cross-document View Transitions handle page fades where supported */
+      if ("onpagereveal" in document) d.classList.add("vt");
+    })();
+  </script>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ========== Navigation ========== -->
+  <nav class="navbar navbar-expand-lg fixed-top site-nav" id="siteNav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">izrah<span class="brand-dot">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-3 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact</a></li>
+        </ul>
+        <div class="d-flex align-items-center nav-actions">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme" aria-pressed="false">
+            <i class="bi bi-moon-stars icon-moon" aria-hidden="true"></i>
+            <i class="bi bi-sun icon-sun" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn-accent" href="pages/contact.html">Let's Talk <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- ========== Hero ========== -->
+    <header class="hero">
+      <div class="dots" aria-hidden="true"></div>
+      <div class="container">
+        <div class="row hero-grid g-5">
+          <div class="col-lg-7">
+            <p class="pill-badge" data-animate="fade-up" data-delay="0">
+              <span class="wave" aria-hidden="true">👋</span>
+              Hello, World! I'm <strong>Izrah Vendiola</strong>
+            </p>
+            <h1 class="hero-title" data-animate="fade-up" data-delay="90">
+              Welcome to my <span class="fancy">little corner</span> of the internet.
+            </h1>
+            <p class="hero-sub" data-animate="fade-up" data-delay="200">
+              A curious mind with a creative side<span class="dot-divider">.</span>
+            </p>
+            <p class="hero-intro" data-animate="fade-up" data-delay="280">
+              I'm a lifelong learner and part-time tinkerer who loves turning sparks of
+              inspiration into small, useful, delightful things. This site is my playground —
+              part journal, part portfolio, all curiosity.
+            </p>
+            <div class="hero-cta" data-animate="fade-up" data-delay="370">
+              <a class="btn btn-accent" href="pages/about.html">Discover More <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              <a class="btn btn-ghost" href="pages/projects.html"><i class="bi bi-collection me-1" aria-hidden="true"></i> Explore Projects</a>
+            </div>
+            <div class="hero-socials" data-animate="fade-up" data-delay="460">
+              <span class="socials-label">Find me on</span>
+              <a class="social-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+                <i class="bi bi-github" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="bi bi-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="bi bi-instagram" aria-hidden="true"></i>
+              </a>
+              <a class="social-btn" href="mailto:hello@izrahvendiola.com" aria-label="Email Izrah">
+                <i class="bi bi-envelope" aria-hidden="true"></i>
+              </a>
+            </div>
+            <a class="scroll-hint" href="#intro">
+              Scroll
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="col-lg-5">
+            <div class="hero-visual">
+              <div class="portrait-wrap">
+                <div class="portrait-blob" data-parallax="20" aria-hidden="true"></div>
+                <div class="portrait-frame" data-animate="scale-in" data-delay="180">
+                  <img class="portrait" src="assets/images/profile.svg"
+                    alt="Playful portrait placeholder of Izrah Vendiola" width="800" height="1000">
+                </div>
+                <span class="sticker sticker-1" data-animate="fade-up" data-delay="520" data-parallax="10">
+                  <i class="bi bi-lightbulb" aria-hidden="true"></i> forever curious
+                </span>
+                <span class="sticker sticker-2" data-animate="fade-up" data-delay="640" data-parallax="14">
+                  <i class="bi bi-palette" aria-hidden="true"></i> maker of things
+                </span>
+                <span class="sticker sticker-3" data-animate="fade-up" data-delay="760" data-parallax="8">
+                  <i class="bi bi-cup-hot" aria-hidden="true"></i> powered by coffee
+                </span>
+                <span class="spark spark-1" data-animate="fade-in" data-delay="900" data-parallax="16" aria-hidden="true">✦</span>
+                <span class="spark spark-2" data-animate="fade-in" data-delay="1000" data-parallax="12" aria-hidden="true">✳</span>
+                <span class="spark spark-3" data-animate="fade-in" data-delay="1100" data-parallax="18" aria-hidden="true">✦</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== Marquee ========== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>always learning</span><span>making things</span><span>collecting ideas</span>
+          <span>drinking good coffee</span><span>growing daily</span><span>staying curious</span>
+        </div>
+        <div class="marquee-group">
+          <span>always learning</span><span>making things</span><span>collecting ideas</span>
+          <span>drinking good coffee</span><span>growing daily</span><span>staying curious</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== Introduction ========== -->
+    <section class="section" id="intro" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-7">
+            <span class="eyebrow" data-animate="fade-up">A little intro</span>
+            <h2 class="section-title" id="intro-title" data-animate="fade-up" data-delay="80">
+              Nice to meet you — I'm <span class="fancy">glad</span> you're here.
+            </h2>
+            <p class="section-lead mt-3" data-animate="fade-up" data-delay="160">
+              I believe learning should be loud, messy and fun. Some weeks I'm deep in code,
+              other weeks I'm elbow-deep in sketches, notebooks and half-finished ideas —
+              and I wouldn't have it any other way.
+            </p>
+            <p class="text-soft" data-animate="fade-up" data-delay="220">
+              Around here you'll find the things I make, the things I'm learning, and the
+              occasional thought that kept me up at night. No corporate polish, no pretense —
+              just an honest record of a curious person figuring things out.
+            </p>
+            <a class="link-arrow mt-2 d-inline-flex" href="pages/about.html" data-animate="fade-up" data-delay="280">
+              More about me <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="col-lg-5">
+            <div class="sticky-board" data-animate-group>
+              <div class="sticky-note" data-animate="slide-right">
+                <span class="note-label">Note to self · 01</span>
+                <p>Currently obsessed with: color palettes & tiny animations 🎨</p>
+              </div>
+              <div class="sticky-note n2" data-animate="slide-right">
+                <span class="note-label">Fuel</span>
+                <p>Coffee, lo-fi playlists and a good playlist-worthy sunset ☕</p>
+              </div>
+              <div class="sticky-note n3" data-animate="slide-right">
+                <span class="note-label">PSA</span>
+                <p>Say hi anytime — I actually reply! ✉️</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Interests ========== -->
+    <section class="section section-soft" aria-labelledby="interests-title">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow" data-animate="fade-up">What I'm into</span>
+          <h2 class="section-title" id="interests-title" data-animate="fade-up" data-delay="80">
+            Things that keep my <span class="fancy">wheels</span> turning
+          </h2>
+          <p class="section-lead" data-animate="fade-up" data-delay="160">
+            Four little engines that power most of what I do, make and learn.
+          </p>
+        </div>
+        <div class="row g-4" data-animate-group>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <span class="card-index" aria-hidden="true">01</span>
+              <div class="icon-tile"><i class="bi bi-lightbulb" aria-hidden="true"></i></div>
+              <h3 class="card-title">Learning</h3>
+              <p>New topics, tutorials and the occasional "wait, how does that work?"
+              rabbit hole that eats an entire afternoon.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <span class="card-index" aria-hidden="true">02</span>
+              <div class="icon-tile"><i class="bi bi-palette" aria-hidden="true"></i></div>
+              <h3 class="card-title">Creativity</h3>
+              <p>Sketching, writing and turning vague ideas into things you can
+              actually see, click and share.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <span class="card-index" aria-hidden="true">03</span>
+              <div class="icon-tile"><i class="bi bi-cpu" aria-hidden="true"></i></div>
+              <h3 class="card-title">Technology</h3>
+              <p>The web, small tools and gentle experiments that make everyday
+              life a little bit easier.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="card-x" data-animate="fade-up">
+              <span class="card-index" aria-hidden="true">04</span>
+              <div class="icon-tile"><i class="bi bi-flower1" aria-hidden="true"></i></div>
+              <h3 class="card-title">Personal Growth</h3>
+              <p>Tiny habits, honest reflections and becoming a slightly better
+              version of myself each week.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Featured projects ========== -->
+    <section class="section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-animate="fade-up">Featured work</span>
+          <div class="d-flex flex-wrap align-items-end justify-content-between gap-3">
+            <h2 class="section-title mb-0" id="featured-title" data-animate="fade-up" data-delay="80">
+              Recent <span class="fancy">experiments</span> I'm proud of
+            </h2>
+            <a class="link-arrow" href="pages/projects.html" data-animate="fade-up" data-delay="140">
+              View all projects <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="row g-4" data-animate-group>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-x project-card" data-animate="fade-up">
+              <div class="card-media">
+                <img src="assets/images/projects/project-1.svg" alt="Preview of the Curiosity Journal project" loading="lazy" width="1200" height="900">
+                <span class="card-cat">Website</span>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">Curiosity Journal</h3>
+                <p>A digital garden where I plant notes and half-formed thoughts, then watch them grow into full ideas.</p>
+                <div class="tag-row">
+                  <span class="tag-chip">HTML/CSS</span>
+                  <span class="tag-chip">JavaScript</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-x project-card" data-animate="fade-up">
+              <div class="card-media">
+                <img src="assets/images/projects/project-2.svg" alt="Preview of the Palette Playground project" loading="lazy" width="1200" height="900">
+                <span class="card-cat">Creative tool</span>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">Palette Playground</h3>
+                <p>Generate, tweak and save color palettes — built for the joy of pressing "randomize" forty times.</p>
+                <div class="tag-row">
+                  <span class="tag-chip">JavaScript</span>
+                  <span class="tag-chip">LocalStorage</span>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <article class="card-x project-card" data-animate="fade-up">
+              <div class="card-media">
+                <img src="assets/images/projects/project-3.svg" alt="Preview of the Daily Sparks project" loading="lazy" width="1200" height="900">
+                <span class="card-cat">Learning</span>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">Daily Sparks</h3>
+                <p>A tiny habit tracker that celebrates small wins with confetti, because progress deserves sparkle.</p>
+                <div class="tag-row">
+                  <span class="tag-chip">Web app</span>
+                  <span class="tag-chip">PWA</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Call to action ========== -->
+    <section class="section section-cta" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card" data-animate="scale-in">
+          <span class="cta-spark cta-spark-1" aria-hidden="true">✦</span>
+          <span class="cta-spark cta-spark-2" aria-hidden="true">✳</span>
+          <span class="eyebrow" data-animate="fade-up">Say hello</span>
+          <h2 class="cta-title" id="cta-title" data-animate="fade-up" data-delay="80">
+            Have something in <span class="fancy" style="color:#fff">mind?</span>
+          </h2>
+          <p class="cta-text" data-animate="fade-up" data-delay="160">
+            An idea, a question, a project — or just a friendly hello.
+            My inbox is always open and my curiosity is always on.
+          </p>
+          <a class="btn btn-on-accent" href="pages/contact.html" data-animate="fade-up" data-delay="240">
+            Let's talk <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-5">
+          <a class="footer-brand" href="index.html">izrah<span class="brand-dot">.</span></a>
+          <p class="footer-tagline">A curious mind with a creative side — making things,
+          learning things and sharing the journey.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a class="social-btn" href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="bi bi-github" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="bi bi-instagram" aria-hidden="true"></i>
+            </a>
+            <a class="social-btn" href="mailto:hello@izrahvendiola.com" aria-label="Email Izrah">
+              <i class="bi bi-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3 offset-lg-1">
+          <h3 class="footer-heading">Explore</h3>
+          <nav class="d-flex flex-column" aria-label="Footer navigation">
+            <a class="footer-link" href="index.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Home</a>
+            <a class="footer-link" href="pages/about.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>About</a>
+            <a class="footer-link" href="pages/projects.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Projects</a>
+            <a class="footer-link" href="pages/experience.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Experience</a>
+            <a class="footer-link" href="pages/contact.html"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>Contact</a>
+          </nav>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-heading">Say hello</h3>
+          <a class="footer-link" href="mailto:hello@izrahvendiola.com"><i class="bi bi-arrow-right-short" aria-hidden="true"></i>hello@izrahvendiola.com</a>
+          <p class="footer-tagline mt-2">Open to collaborations, coffee chats and good ideas of any size.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> Izrah Vendiola. All curiosity reserved.</p>
+        <p>Made with <i class="bi bi-heart-fill" aria-hidden="true"></i> & vanilla everything.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" type="button" aria-label="Back to top">
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+  <div id="toastRegion" class="toast-container position-fixed bottom-0 start-0 p-3"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+</body>
+</html>

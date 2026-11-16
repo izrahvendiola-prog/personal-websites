@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Daily Sparks preview">
+  <rect width="1200" height="900" fill="#FFF3D9"/>
+  <circle cx="1105" cy="115" r="80" fill="#FFE9B8"/>
+  <circle cx="120" cy="800" r="95" fill="#FFE9B8"/>
+  <circle cx="520" cy="430" r="215" fill="none" stroke="#FFD27A" stroke-width="38"/>
+  <circle cx="520" cy="430" r="215" fill="none" stroke="#6D3AF2" stroke-width="38" stroke-linecap="round" stroke-dasharray="945 1350" transform="rotate(-90 520 430)"/>
+  <polygon points="520,395 531,434 570,445 531,456 520,495 509,456 470,445 509,434" fill="#6D3AF2"/>
+  <rect x="780" y="290" width="300" height="290" rx="22" fill="#FFFFFF" stroke="#F2E3C0" stroke-width="2"/>
+  <circle cx="822" cy="345" r="14" fill="#3FBF8F"/>
+  <path d="M815 345 l5 6 l10 -12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="852" y="336" width="190" height="16" rx="8" fill="#E8DFCB"/>
+  <circle cx="822" cy="415" r="14" fill="#3FBF8F"/>
+  <path d="M815 415 l5 6 l10 -12" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="852" y="406" width="160" height="16" rx="8" fill="#E8DFCB"/>
+  <circle cx="822" cy="485" r="14" fill="none" stroke="#D9C9A6" stroke-width="3"/>
+  <rect x="852" y="476" width="175" height="16" rx="8" fill="#E8DFCB"/>
+  <polygon points="330,180 339,212 371,221 339,230 330,262 321,230 289,221 321,212" fill="#FF6E4E"/>
+  <polygon points="750,660 757,684 781,691 757,698 750,722 743,698 719,691 743,684" fill="#6D3AF2"/>
+  <polygon points="880,120 886,141 907,147 886,153 880,174 874,153 853,147 874,141" fill="#FFC53D"/>
+</svg>
