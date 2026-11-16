@@ -1,20 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Abstract portrait placeholder for Izrah Vendiola">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Flat phosphor-style portrait placeholder for Izrah Vendiola">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#7B42F5"/>
-      <stop offset="0.55" stop-color="#9A5CFF"/>
-      <stop offset="1" stop-color="#C08BFF"/>
-    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#1B231B" stroke-width="1"/>
+    </pattern>
   </defs>
-  <rect width="800" height="1000" fill="url(#bg)"/>
-  <circle cx="640" cy="170" r="150" fill="#ffffff" opacity="0.14"/>
-  <circle cx="120" cy="780" r="210" fill="#ffffff" opacity="0.10"/>
-  <circle cx="700" cy="845" r="92" fill="#FF6E4E" opacity="0.35"/>
-  <circle cx="80" cy="150" r="46" fill="#ffffff" opacity="0.2"/>
-  <circle cx="400" cy="430" r="196" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="4 16" stroke-linecap="round"/>
-  <circle cx="400" cy="430" r="148" fill="#2B2140"/>
-  <path d="M400 612c-152 0-244 92-244 214v174h488V826c0-122-92-214-244-214z" fill="#2B2140"/>
-  <polygon points="596,266 603,293 630,300 603,307 596,334 589,307 562,300 589,293" fill="#ffffff" opacity="0.9"/>
-  <polygon points="176,210 182,230 202,236 182,242 176,262 170,242 150,236 170,230" fill="#ffffff" opacity="0.7"/>
-  <polygon points="664,540 669,556 684,560 669,564 664,580 659,564 644,560 659,556" fill="#ffffff" opacity="0.8"/>
+  <rect width="800" height="1000" fill="#0B0D0B"/>
+  <rect width="800" height="1000" fill="url(#grid)"/>
+  <circle cx="400" cy="420" r="196" fill="none" stroke="#3EF08A" stroke-width="2" stroke-dasharray="6 12" opacity="0.85"/>
+  <circle cx="400" cy="410" r="148" fill="#E6EFE4"/>
+  <path d="M400 606c-158 0-252 96-252 220v174h504V826c0-124-94-220-252-220z" fill="#E6EFE4"/>
+  <circle cx="652" cy="168" r="12" fill="#FFB454"/>
+  <circle cx="130" cy="220" r="8" fill="#3EF08A"/>
+  <circle cx="680" cy="640" r="9" fill="#3EF08A"/>
+  <rect x="112" y="880" width="70" height="6" fill="#FFB454"/>
+  <rect x="618" y="96" width="70" height="6" fill="#3EF08A"/>
 </svg>

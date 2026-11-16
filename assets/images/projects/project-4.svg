@@ -1,27 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Pixel Garden preview">
-  <rect width="1200" height="900" fill="#E7F6EC"/>
-  <circle cx="1050" cy="140" r="72" fill="#FFC53D"/>
-  <g fill="#FFFFFF" opacity="0.9">
-    <rect x="150" y="110" width="150" height="46" rx="23"/>
-    <rect x="200" y="80" width="110" height="52" rx="26"/>
-  </g>
+  <defs>
+    <pattern id="g4" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#1B231B" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#0E120E"/>
+  <rect width="1200" height="900" fill="url(#g4)"/>
+  <circle cx="1050" cy="140" r="70" fill="none" stroke="#FFB454" stroke-width="4"/>
+  <circle cx="1050" cy="140" r="14" fill="#FFB454"/>
+  <rect x="140" y="96" width="150" height="44" rx="2" fill="#1E2A1E"/>
+  <rect x="196" y="66" width="110" height="50" rx="2" fill="#16241B"/>
   <g>
-    <rect x="250" y="270" width="140" height="140" rx="24" fill="#3FBF8F"/>
-    <rect x="410" y="270" width="140" height="140" rx="24" fill="#A8E8C8"/>
-    <rect x="570" y="270" width="140" height="140" rx="24" fill="#C4B0FA"/>
-    <rect x="730" y="270" width="140" height="140" rx="24" fill="#7ADBA8"/>
-    <rect x="250" y="430" width="140" height="140" rx="24" fill="#FFF0BC"/>
-    <rect x="410" y="430" width="140" height="140" rx="24" fill="#7ADBA8"/>
-    <rect x="570" y="430" width="140" height="140" rx="24" fill="#A8E8C8"/>
-    <rect x="730" y="430" width="140" height="140" rx="24" fill="#FF6E4E"/>
-    <rect x="250" y="590" width="140" height="140" rx="24" fill="#A8E8C8"/>
-    <rect x="410" y="590" width="140" height="140" rx="24" fill="#6D3AF2"/>
-    <rect x="570" y="590" width="140" height="140" rx="24" fill="#7ADBA8"/>
-    <rect x="730" y="590" width="140" height="140" rx="24" fill="#C4B0FA"/>
+    <rect x="250" y="270" width="140" height="140" fill="#1E3A2A"/>
+    <rect x="410" y="270" width="140" height="140" fill="#2E5B3F"/>
+    <rect x="570" y="270" width="140" height="140" fill="#16241B"/>
+    <rect x="730" y="270" width="140" height="140" fill="#2E5B3F"/>
+    <rect x="250" y="430" width="140" height="140" fill="#3EF08A"/>
+    <rect x="410" y="430" width="140" height="140" fill="#16241B"/>
+    <rect x="570" y="430" width="140" height="140" fill="#1E3A2A"/>
+    <rect x="730" y="430" width="140" height="140" fill="#FFB454"/>
+    <rect x="250" y="590" width="140" height="140" fill="#2E5B3F"/>
+    <rect x="410" y="590" width="140" height="140" fill="#16241B"/>
+    <rect x="570" y="590" width="140" height="140" fill="#1E3A2A"/>
+    <rect x="730" y="590" width="140" height="140" fill="#16241B"/>
   </g>
-  <path d="M640 590 v-64" stroke="#2B2140" stroke-width="8" stroke-linecap="round"/>
-  <path d="M640 540 c -34 -6 -48 -28 -46 -52 c 30 2 48 22 46 52 z" fill="#3FBF8F"/>
-  <path d="M640 520 c 34 -6 48 -28 46 -52 c -30 2 -48 22 -46 52 z" fill="#3FBF8F"/>
-  <polygon points="950,220 957,244 981,251 957,258 950,282 943,258 919,251 943,244" fill="#6D3AF2"/>
-  <polygon points="170,720 177,744 201,751 177,758 170,782 163,758 139,751 163,744" fill="#FF6E4E"/>
+  <path d="M640 430 v-66" stroke="#E6EFE4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M640 376 c -36 -6 -50 -30 -48 -56 c 32 2 50 24 48 56 z" fill="#3EF08A"/>
+  <path d="M640 356 c 36 -6 50 -30 48 -56 c -32 2 -50 24 -48 56 z" fill="#3EF08A"/>
+  <rect x="944" y="222" width="24" height="24" fill="#3EF08A" transform="rotate(45 956 234)"/>
+  <rect x="164" y="714" width="20" height="20" fill="#FFB454" transform="rotate(45 174 724)"/>
 </svg>

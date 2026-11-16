@@ -15,10 +15,11 @@ no frameworks, no build step, no jQuery.
   staggered card groups — all gated behind `prefers-reduced-motion`.
 - **Page transitions** — cross-document View Transitions where supported, quick fade-out
   fallback otherwise.
-- **Creative details** — editorial typography (Space Grotesk × Instrument Serif ×
-  DM Sans × JetBrains Mono), arch-shaped portrait with floating sticker chips, a
-  scrolling marquee, sticky-note cards, pointer parallax decorations and a dot-grid
-  texture.
+- **Creative details** — a flat phosphor-terminal design system: Space Grotesk ×
+  DM Sans × JetBrains Mono, phosphor green (P1) + amber (P3) accents on hard edges
+  and 1px borders (no gradients, no glow), a viewfinder-framed portrait with corner
+  brackets, a scrolling marquee, a terminal-style "now" panel, subtle CRT scanlines
+  on dark mode, an engineering-grid texture and a blinking caret.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.
@@ -70,7 +71,7 @@ No build step required. Either:
 
 | What | Where |
 |------|-------|
-| Colors, shadows, radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
+| Colors (phosphor green / amber), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
 | Fonts | The Google Fonts `<link>` in each page's `<head>` + the `--font-*` variables |
 | Theme storage key | `assets/js/main.js` → `THEME_KEY` |
 | Portrait photo | Replace `assets/images/profile.svg` with your own image (any ratio ~4:5 works; arch shape comes from CSS) |
@@ -99,7 +100,7 @@ await fetch("https://formspree.io/f/yourFormId", {
 - HTML5, CSS3, vanilla JavaScript (ES2017+, no dependencies)
 - [Bootstrap 5.3](https://getbootstrap.com/) — grid, collapse, modal, accordion, toast
 - [Bootstrap Icons](https://icons.getbootstrap.com/) 1.11
-- Google Fonts — Space Grotesk, DM Sans, Instrument Serif, JetBrains Mono
+- Google Fonts — Space Grotesk, DM Sans, JetBrains Mono
 
 ## ♿ Accessibility notes
 

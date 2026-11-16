@@ -1,22 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Palette Playground preview">
-  <rect width="1200" height="900" fill="#F3EEFB"/>
-  <circle cx="150" cy="770" r="90" fill="#E7DBFF"/>
-  <circle cx="1060" cy="130" r="70" fill="#E7DBFF"/>
-  <circle cx="600" cy="450" r="185" fill="#6D3AF2"/>
-  <circle cx="770" cy="375" r="125" fill="#FF6E4E" opacity="0.92"/>
-  <circle cx="465" cy="330" r="105" fill="#FFC53D"/>
-  <circle cx="465" cy="575" r="112" fill="#3FBF8F"/>
-  <circle cx="745" cy="595" r="102" fill="#F45B9C"/>
-  <circle cx="600" cy="450" r="70" fill="#FFFFFF" opacity="0.92"/>
-  <circle cx="600" cy="450" r="34" fill="#211A2E"/>
-  <g fill="#C4B0FA">
-    <circle cx="130" cy="150" r="7"/><circle cx="170" cy="150" r="7"/><circle cx="210" cy="150" r="7"/>
-    <circle cx="130" cy="190" r="7"/><circle cx="170" cy="190" r="7"/><circle cx="210" cy="190" r="7"/>
-    <circle cx="130" cy="230" r="7"/><circle cx="170" cy="230" r="7"/><circle cx="210" cy="230" r="7"/>
+  <defs>
+    <pattern id="g2" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#1B231B" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#0E120E"/>
+  <rect width="1200" height="900" fill="url(#g2)"/>
+  <circle cx="465" cy="330" r="105" fill="#E6EFE4"/>
+  <circle cx="745" cy="375" r="125" fill="#FFB454"/>
+  <circle cx="465" cy="575" r="112" fill="#3EF08A"/>
+  <circle cx="745" cy="595" r="102" fill="#1E2A1E" stroke="#3EF08A" stroke-width="3"/>
+  <circle cx="600" cy="460" r="66" fill="#0E120E" stroke="#E6EFE4" stroke-width="4"/>
+  <circle cx="600" cy="460" r="24" fill="#3EF08A"/>
+  <g>
+    <rect x="130" y="740" width="44" height="44" fill="#3EF08A"/>
+    <rect x="186" y="740" width="44" height="44" fill="#FFB454"/>
+    <rect x="242" y="740" width="44" height="44" fill="#E6EFE4"/>
+    <rect x="298" y="740" width="44" height="44" fill="#1E2A1E" stroke="#3EF08A" stroke-width="2"/>
+    <rect x="354" y="740" width="44" height="44" fill="none" stroke="#E6EFE4" stroke-width="2"/>
   </g>
-  <g stroke="#FF6E4E" stroke-width="8" stroke-linecap="round">
-    <path d="M965 640 v60"/><path d="M935 670 h60"/>
-  </g>
-  <polygon points="1010,300 1018,328 1046,336 1018,344 1010,372 1002,344 974,336 1002,328" fill="#6D3AF2"/>
-  <polygon points="230,640 237,664 261,671 237,678 230,702 223,678 199,671 223,664" fill="#F45B9C"/>
+  <rect x="1010" y="170" width="34" height="34" fill="#3EF08A" transform="rotate(45 1027 187)"/>
+  <path d="M955 640 v60 M925 670 h60" stroke="#FFB454" stroke-width="6" stroke-linecap="round"/>
+  <rect x="120" y="140" width="22" height="22" fill="#FFB454" transform="rotate(45 131 151)"/>
 </svg>

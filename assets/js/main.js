@@ -40,7 +40,7 @@
   function applyTheme(theme) {
     doc.setAttribute("data-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#151119" : "#FBF7F1");
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#0B0D0B" : "#F4F3EE");
     const toggle = document.getElementById("themeToggle");
     if (toggle) toggle.setAttribute("aria-pressed", String(theme === "dark"));
   }
@@ -232,7 +232,7 @@
         btn.innerHTML = originalHtml;
         form.classList.remove("was-validated");
         form.reset();
-        showToast("Message sent! 🎉", `Thanks, ${firstName} — I'll get back to you within a couple of days.`);
+        showToast("Message sent!", `Thanks, ${firstName} — I'll get back to you within a couple of days.`);
       }, 950);
     });
   }

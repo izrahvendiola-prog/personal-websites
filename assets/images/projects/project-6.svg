@@ -1,17 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Letter Loop preview">
-  <rect width="1200" height="900" fill="#FDEDF1"/>
-  <circle cx="1080" cy="760" r="95" fill="#F9D8E3"/>
-  <circle cx="120" cy="140" r="70" fill="#F9D8E3"/>
-  <path d="M850 330 C 950 300, 1010 380, 1100 340" fill="none" stroke="#6D3AF2" stroke-width="5" stroke-dasharray="10 14" stroke-linecap="round"/>
-  <polygon points="880,190 1005,150 945,250" fill="#6D3AF2"/>
-  <polygon points="945,250 1005,150 975,265" fill="#9A5CFF"/>
-  <rect x="310" y="340" width="430" height="280" rx="20" fill="#FFFFFF" stroke="#F1D6E0" stroke-width="3"/>
-  <path d="M310 358 L525 512 L740 358" fill="none" stroke="#E5B9CC" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M525 500 c -9 -15 -33 -11 -33 7 c 0 15 19 24 33 35 c 14 -11 33 -20 33 -35 c 0 -18 -24 -22 -33 -7 z" fill="#FF6E4E"/>
-  <path d="M175 620 c -9 -15 -33 -11 -33 7 c 0 15 19 24 33 35 c 14 -11 33 -20 33 -35 c 0 -18 -24 -22 -33 -7 z" fill="#F45B9C"/>
-  <path d="M905 585 c -7 -12 -26 -9 -26 5 c 0 12 15 19 26 28 c 11 -9 26 -16 26 -28 c 0 -14 -19 -17 -26 -5 z" fill="#F45B9C"/>
-  <g stroke="#E5B9CC" stroke-width="8" stroke-linecap="round">
-    <path d="M890 440 h180"/><path d="M890 480 h140"/><path d="M890 520 h165"/>
+  <defs>
+    <pattern id="g6" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#1B231B" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#0E120E"/>
+  <rect width="1200" height="900" fill="url(#g6)"/>
+  <path d="M850 330 C 950 300, 1010 380, 1100 340" fill="none" stroke="#3EF08A" stroke-width="4" stroke-dasharray="10 14" stroke-linecap="round"/>
+  <polygon points="880,190 1005,150 945,250" fill="#E6EFE4"/>
+  <polygon points="945,250 1005,150 975,265" fill="#3EF08A"/>
+  <rect x="310" y="340" width="430" height="280" rx="6" fill="#111511" stroke="#3EF08A" stroke-width="4"/>
+  <path d="M310 358 L525 512 L730 358" fill="none" stroke="#3EF08A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M525 500 c -9 -15 -33 -11 -33 7 c 0 15 19 24 33 35 c 14 -11 33 -20 33 -35 c 0 -18 -24 -22 -33 -7 z" fill="#FFB454"/>
+  <path d="M175 620 c -9 -15 -33 -11 -33 7 c 0 15 19 24 33 35 c 14 -11 33 -20 33 -35 c 0 -18 -24 -22 -33 -7 z" fill="#FFB454"/>
+  <path d="M905 585 c -7 -12 -26 -9 -26 5 c 0 12 15 19 26 28 c 11 -9 26 -16 26 -28 c 0 -14 -19 -17 -26 -5 z" fill="#3EF08A"/>
+  <g fill="#1E2A1E">
+    <rect x="890" y="432" width="180" height="10"/>
+    <rect x="890" y="472" width="140" height="10"/>
+    <rect x="890" y="512" width="165" height="10"/>
   </g>
-  <polygon points="255,180 262,204 286,211 262,218 255,242 248,218 224,211 248,204" fill="#6D3AF2"/>
+  <rect x="248" y="174" width="24" height="24" fill="#3EF08A" transform="rotate(45 260 186)"/>
 </svg>
