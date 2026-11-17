@@ -143,12 +143,6 @@
     width: auto;
   }
 
-  /* Keep the round dot disc inside the frame on phones */
-  .hero-figure::after,
-  .about-figure::after {
-    height: 100%;
-  }
-
   .hero-socials .social-btn {
     width: 2.3rem;
     height: 2.3rem;

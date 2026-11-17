@@ -249,12 +249,6 @@ img {
   --grid-dots-size:
     var(--grid-cell-major) var(--grid-cell-major),
     var(--grid-cell) var(--grid-cell);
-
-  /* Round dot discs that sit behind the portraits */
-  --portrait-dot-cell: 12px;
-  --portrait-dot-r: 1.3px;
-  --portrait-dot: rgba(107, 33, 168, 0.38);
-  --portrait-dot-inv: rgba(233, 222, 242, 0.5);
 }
 
 [data-theme="dark"] {
@@ -768,39 +762,11 @@ h2 {
 /* Portrait cutout — slightly tilted, like Finguard's cards */
 .hero-figure {
   position: relative;
-  isolation: isolate;
   display: flex;
   justify-content: center;
 }
 
-/* Round dot disc — the portrait sits inside a circular dot field that covers
-   the whole cutout */
-.hero-figure::after,
-.about-figure::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-  height: 112%;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  pointer-events: none;
-  background-image: radial-gradient(circle at 1.5px 1.5px,
-      currentColor var(--portrait-dot-r), transparent calc(var(--portrait-dot-r) + 0.3px));
-  background-size: var(--portrait-dot-cell) var(--portrait-dot-cell);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 80%, transparent 100%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 80%, transparent 100%);
-}
-
-.hero-figure::after {
-  color: var(--portrait-dot-inv);
-}
-
 .hero-figure .portrait {
-  position: relative;
-  z-index: 1;
   width: auto;
   height: clamp(21rem, 33vw, 28rem);
   max-width: 100%;
@@ -2058,22 +2024,7 @@ a.feature-row {
 }
 
 /* About-page portrait cutout */
-.about-figure {
-  position: relative;
-  isolation: isolate;
-}
-
-.about-figure::after {
-  color: var(--portrait-dot);
-}
-
-[data-theme="dark"] .about-figure::after {
-  color: var(--portrait-dot-inv);
-}
-
 .about-figure .portrait {
-  position: relative;
-  z-index: 1;
   height: clamp(18rem, 26vw, 23rem);
   width: auto;
   object-position: 50% 50%;
