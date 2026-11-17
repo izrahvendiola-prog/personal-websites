@@ -93,7 +93,8 @@
   }
 
   .hero-figure .portrait {
-    width: min(16rem, 74vw);
+    height: min(24rem, 82vw);
+    width: auto;
   }
 
   .section-head.split {
@@ -121,6 +122,18 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+  /* Stack footer columns and shrink the FAB on phones */
+  .site-footer .col-6 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .back-top {
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* ---------- Phones ---------- */
@@ -134,7 +147,8 @@
   }
 
   .hero-figure .portrait {
-    width: min(15rem, 78vw);
+    height: min(21rem, 88vw);
+    width: auto;
   }
 
   .hero-socials .social-btn {

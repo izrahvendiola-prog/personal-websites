@@ -19,11 +19,11 @@ no frameworks, no build step, no jQuery.
   Finguard reference: the whole page as one rounded card on the background, a
   consistent solid dark header bar, alternating dark/light full-bleed bands, huge
   condensed uppercase display type (Anton × DM Sans × JetBrains Mono), numbered
-  feature rows with an overlapping "Currently" card, a tilted portrait photo,
+  feature rows with an overlapping "Currently" card, a tilted portrait cutout,
   a numbered steps rail, flat sparkle accents, static project image tiles and a
   purple CTA/footer band with giant brand text. Izrah's palette throughout:
-  purple `#A855F7` / pink `#E9A5C9` / amber `#FFC857` on black & white — flat
-  colors only, no gradients, no glassmorphism.
+  deep wine `#5B1B32` for the CTA band, deep purple `#6B21A8` / amber `#F4C66A`
+  accents on black & white — flat colors only, no gradients, no glassmorphism.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.
@@ -51,7 +51,8 @@ personal-websites/
 │   │   └── animations.js      # Scroll reveals, parallax, page transitions
 │   └── images/
 │       ├── favicon.svg
-│       ├── profile.webp       # Portrait photo (swap for your own)
+│       ├── profile-cutout.webp # Portrait cutout (transparent background)
+│       ├── profile.webp       # Original portrait (kept as source)
 │       └── projects/          # project-1.svg … project-6.svg placeholders
 │
 └── README.md
@@ -74,10 +75,10 @@ No build step required. Either:
 
 | What | Where |
 |------|-------|
-| Colors (purple / pink / amber), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
+| Colors (deep wine band, purple / amber accents), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
 | Fonts | The Google Fonts `<link>` in each page's `<head>` + the `--font-*` variables |
 | Theme storage key | `assets/js/main.js` → `THEME_KEY` |
-| Portrait photo | Replace `assets/images/profile.webp` with your own image (displayed at ~4:5, face near the top works best) |
+| Portrait cutout | Replace `assets/images/profile-cutout.webp` with your own transparent PNG/WebP (the layout scales it by height and drops the shadow automatically) |
 | Project thumbnails | Replace files in `assets/images/projects/` |
 | Social links | Search each page for `github.com` / `linkedin.com` / `instagram.com` and point them at real profiles |
 | Email address | Replace `hello@izrahvendiola.com` everywhere (it's a placeholder) |
