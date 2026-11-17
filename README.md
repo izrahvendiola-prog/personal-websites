@@ -27,8 +27,11 @@ no frameworks, no build step, no jQuery.
 - **Blueprint dot grid** — a 24px dot field with larger 96px major dots spans the
   full page, tinted purple on light surfaces and inverted to white on the dark
   header, wine CTA and footer bands. Tokens: `--grid-cell`, `--grid-dot*`.
-- **Portrait cutout** — a tilted transparent portrait that sits directly on the
-  dot grid, no backing plate.
+- **Portrait poster** — each cutout stands in front of a flat purple plate with an
+  amber plate offset 16px behind it, like a second colour pass that never quite
+  lined up, plus a small amber registration square at the top corner. The plate
+  top edge sits at the shoulders so the head breaks out of the colour field; both
+  plates stay square to the grid while the portrait keeps its tilt.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.

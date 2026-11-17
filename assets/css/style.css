@@ -762,11 +762,43 @@ h2 {
 /* Portrait cutout — slightly tilted, like Finguard's cards */
 .hero-figure {
   position: relative;
+  isolation: isolate;
   display: flex;
   justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+/* Portrait poster — two flat colour plates behind the cutout. The plates stay
+   square to the page grid while the portrait tilts, and the top edge sits at the
+   shoulders so the head breaks out of the colour field. The amber plate is
+   offset a few pixels, like a second pass that never quite lined up. */
+.hero-figure::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 17% 2% 2% 2%;
+  background: var(--clr-accent-3);
+  translate: 16px 16px;
+}
+
+.hero-figure::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 17% 2% 2% 2%;
+  background-color: var(--clr-accent);
+  /* Registration square, like a crop mark on a press sheet */
+  background-image: linear-gradient(var(--clr-accent-3), var(--clr-accent-3));
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: calc(100% - 14px) 14px;
 }
 
 .hero-figure .portrait {
+  position: relative;
+  z-index: 2;
   width: auto;
   height: clamp(21rem, 33vw, 28rem);
   max-width: 100%;
@@ -775,7 +807,6 @@ h2 {
   display: block;
   border-radius: 0;
   rotate: -2.5deg;
-  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.32));
   transition: rotate var(--dur-med) var(--ease-spring);
 }
 
@@ -2029,10 +2060,6 @@ a.feature-row {
   width: auto;
   object-position: 50% 50%;
   rotate: 2.5deg;
-}
-
-[data-theme="dark"] .about-figure .portrait {
-  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.45));
 }
 
 .about-figure:hover .portrait {
