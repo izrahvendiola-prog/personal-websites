@@ -138,17 +138,15 @@
 
 /* ---------- Phones ---------- */
 @media (max-width: 575.98px) {
-  :root {
-    --frame-gap: 10px;
-  }
-
-  .page-frame {
-    border-radius: var(--radius-lg);
-  }
-
   .hero-figure .portrait {
     height: min(21rem, 88vw);
     width: auto;
+  }
+
+  /* Keep the round dot disc inside the frame on phones */
+  .hero-figure::after,
+  .about-figure::after {
+    height: 100%;
   }
 
   .hero-socials .social-btn {

@@ -54,7 +54,6 @@
   --radius-xl: 24px;
   --radius-pill: 999px;
   --section-pad: clamp(4rem, 8vw, 6.25rem);
-  --frame-gap: clamp(10px, 2vw, 26px);
 
   /* Motion */
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -93,7 +92,6 @@
   --clr-on-panel: #ffffff;
   --clr-border: rgba(18, 18, 18, 0.12);
   --clr-border-strong: rgba(18, 18, 18, 0.26);
-  --shadow-frame: 0 32px 70px -46px rgba(18, 18, 18, 0.35);
   --shadow-md: 0 16px 36px -18px rgba(18, 18, 18, 0.25);
 }
 
@@ -125,7 +123,6 @@
   --clr-on-panel: #ffffff;
   --clr-border: rgba(245, 245, 245, 0.13);
   --clr-border-strong: rgba(245, 245, 245, 0.3);
-  --shadow-frame: 0 32px 70px -40px rgba(0, 0, 0, 0.6);
   --shadow-md: 0 16px 36px -18px rgba(0, 0, 0, 0.55);
 }
 
@@ -212,17 +209,65 @@ img {
 }
 
 /* ------------------------------------------------------------
-   03. Page frame — the whole page as one rounded card
+   03. Page shell — full-bleed, no outer card
 ------------------------------------------------------------ */
 .page-frame {
-  width: min(1400px, 100% - 2 * var(--frame-gap));
-  margin-inline: auto;
-  margin-block: var(--frame-gap) calc(var(--frame-gap) + 6px);
-  background: var(--clr-surface);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-xl);
+  width: 100%;
+  margin: 0;
+  background-color: var(--clr-surface);
+  background-image: var(--grid-dots);
+  background-size: var(--grid-dots-size);
+  border: 0;
+  border-radius: 0;
   overflow: clip;
-  box-shadow: var(--shadow-frame);
+}
+
+/* Dot grid — the page-wide technical backdrop.
+   The major tile is an exact multiple of the minor tile and both share the
+   same dot origin, so every 4th dot sits precisely on a minor dot. */
+:root {
+  --grid-cell: 24px;
+  --grid-cell-major: 96px;
+  --grid-dot-origin: 1.5px;
+  --grid-dot-r: 1px;
+  --grid-dot-r-major: 1.5px;
+  --grid-dot: rgba(107, 33, 168, 0.18);
+  --grid-dot-major: rgba(107, 33, 168, 0.34);
+  --grid-dot-inv: rgba(255, 255, 255, 0.11);
+  --grid-dot-inv-major: rgba(255, 255, 255, 0.2);
+
+  --grid-dots:
+    radial-gradient(circle at var(--grid-dot-origin) var(--grid-dot-origin),
+      var(--grid-dot-major) var(--grid-dot-r-major), transparent calc(var(--grid-dot-r-major) + 0.5px)),
+    radial-gradient(circle at var(--grid-dot-origin) var(--grid-dot-origin),
+      var(--grid-dot) var(--grid-dot-r), transparent calc(var(--grid-dot-r) + 0.4px));
+  --grid-dots-inv:
+    radial-gradient(circle at var(--grid-dot-origin) var(--grid-dot-origin),
+      var(--grid-dot-inv-major) var(--grid-dot-r-major), transparent calc(var(--grid-dot-r-major) + 0.5px)),
+    radial-gradient(circle at var(--grid-dot-origin) var(--grid-dot-origin),
+      var(--grid-dot-inv) var(--grid-dot-r), transparent calc(var(--grid-dot-r) + 0.4px));
+  --grid-dots-size:
+    var(--grid-cell-major) var(--grid-cell-major),
+    var(--grid-cell) var(--grid-cell);
+
+  /* Round dot discs that sit behind the portraits */
+  --portrait-dot-cell: 12px;
+  --portrait-dot-r: 1.3px;
+  --portrait-dot: rgba(107, 33, 168, 0.38);
+  --portrait-dot-inv: rgba(233, 222, 242, 0.5);
+}
+
+[data-theme="dark"] {
+  --grid-dot: rgba(255, 255, 255, 0.07);
+  --grid-dot-major: rgba(255, 255, 255, 0.13);
+}
+
+/* Same dot grid, inverted, for the dark and wine bands */
+.band-dark,
+.band-cta,
+.site-footer {
+  background-image: var(--grid-dots-inv);
+  background-size: var(--grid-dots-size);
 }
 
 /* Shared vertical rhythm so stacked sections never touch each other */
@@ -239,7 +284,7 @@ img {
 
 /* Dark full-bleed band (hero, page heroes, hot rows) */
 .band-dark {
-  background: var(--clr-band);
+  background-color: var(--clr-band);
   color: #ffffff;
 }
 
@@ -723,11 +768,39 @@ h2 {
 /* Portrait cutout — slightly tilted, like Finguard's cards */
 .hero-figure {
   position: relative;
+  isolation: isolate;
   display: flex;
   justify-content: center;
 }
 
+/* Round dot disc — the portrait sits inside a circular dot field that covers
+   the whole cutout */
+.hero-figure::after,
+.about-figure::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  height: 112%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 1.5px 1.5px,
+      currentColor var(--portrait-dot-r), transparent calc(var(--portrait-dot-r) + 0.3px));
+  background-size: var(--portrait-dot-cell) var(--portrait-dot-cell);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 80%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 80%, transparent 100%);
+}
+
+.hero-figure::after {
+  color: var(--portrait-dot-inv);
+}
+
 .hero-figure .portrait {
+  position: relative;
+  z-index: 1;
   width: auto;
   height: clamp(21rem, 33vw, 28rem);
   max-width: 100%;
@@ -1169,7 +1242,7 @@ a.feature-row {
    10. CTA band — solid wine, sharp edges
 ------------------------------------------------------------ */
 .band-cta {
-  background: var(--clr-panel);
+  background-color: var(--clr-panel);
   color: var(--clr-on-panel);
   padding: clamp(3rem, 7vw, 5rem) 0;
   text-align: center;
@@ -1213,7 +1286,7 @@ a.feature-row {
 ------------------------------------------------------------ */
 .site-footer {
   position: relative;
-  background: var(--clr-band);
+  background-color: var(--clr-band);
   color: #ffffff;
   padding-bottom: 1.75rem;
   overflow: hidden;
@@ -1919,6 +1992,14 @@ a.feature-row {
   background: var(--clr-bg-soft);
 }
 
+/* Soft bands keep the dot texture instead of flattening to a solid block */
+.section-soft,
+.band-soft,
+.bg-soft {
+  background-image: var(--grid-dots);
+  background-size: var(--grid-dots-size);
+}
+
 /* Contact info cards */
 .info-card {
   display: flex;
@@ -1978,19 +2059,25 @@ a.feature-row {
 
 /* About-page portrait cutout */
 .about-figure {
-  /* soft ground shadow instead of drop-shadow (no boxy halo on white) */
-  background: radial-gradient(58% 14% at 50% 97%, rgba(107, 33, 168, 0.2), transparent 72%);
+  position: relative;
+  isolation: isolate;
+}
+
+.about-figure::after {
+  color: var(--portrait-dot);
+}
+
+[data-theme="dark"] .about-figure::after {
+  color: var(--portrait-dot-inv);
 }
 
 .about-figure .portrait {
+  position: relative;
+  z-index: 1;
   height: clamp(18rem, 26vw, 23rem);
   width: auto;
   object-position: 50% 50%;
   rotate: 2.5deg;
-}
-
-[data-theme="dark"] .about-figure {
-  background: none;
 }
 
 [data-theme="dark"] .about-figure .portrait {

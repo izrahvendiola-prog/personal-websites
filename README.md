@@ -16,14 +16,20 @@ no frameworks, no build step, no jQuery.
 - **Page transitions** — cross-document View Transitions where supported, quick fade-out
   fallback otherwise.
 - **Creative details** — a brutalist-editorial design system adapted from the
-  Finguard reference: the whole page as one rounded card on the background, a
+  Finguard reference: full-bleed full-width layout, a
   consistent solid dark header bar, alternating dark/light full-bleed bands, huge
   condensed uppercase display type (Anton × DM Sans × JetBrains Mono), numbered
   feature rows with an overlapping "Currently" card, a tilted portrait cutout,
   a numbered steps rail, flat sparkle accents, static project image tiles and a
-  purple CTA/footer band with giant brand text. Izrah's palette throughout:
+  wine CTA band and dark footer with giant brand text. Izrah's palette throughout:
   deep wine `#5B1B32` for the CTA band, deep purple `#6B21A8` / amber `#F4C66A`
   accents on black & white — flat colors only, no gradients, no glassmorphism.
+- **Blueprint dot grid** — a 24px dot field with larger 96px major dots spans the
+  full page, tinted purple on light surfaces and inverted to white on the dark
+  header, wine CTA and footer bands. Tokens: `--grid-cell`, `--grid-dot*`.
+- **Portrait dot disc** — a round disc of denser dots covers each cutout (purple on
+  light, lavender on dark) and fades at its rim, so the subject sits inside its own
+  dot field.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.
@@ -52,7 +58,6 @@ personal-websites/
 │   └── images/
 │       ├── favicon.svg
 │       ├── profile-cutout.webp # Portrait cutout (transparent background)
-│       ├── profile.webp       # Original portrait (kept as source)
 │       └── projects/          # project-1.svg … project-6.svg placeholders
 │
 └── README.md
@@ -78,7 +83,7 @@ No build step required. Either:
 | Colors (deep wine band, purple / amber accents), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
 | Fonts | The Google Fonts `<link>` in each page's `<head>` + the `--font-*` variables |
 | Theme storage key | `assets/js/main.js` → `THEME_KEY` |
-| Portrait cutout | Replace `assets/images/profile-cutout.webp` with your own transparent PNG/WebP (the layout scales it by height and drops the shadow automatically) |
+| Portrait cutout | Replace `assets/images/profile-cutout.webp` with your own transparent PNG/WebP (the layout scales it by height and drops the shadow automatically). If you swap in a new background-removed PNG, trim it to the alpha bounding box, then update the `width`/`height` attributes on the portrait `<img>` in `index.html` and `pages/about.html` |
 | Project thumbnails | Replace files in `assets/images/projects/` |
 | Social links | Search each page for `github.com` / `linkedin.com` / `instagram.com` and point them at real profiles |
 | Email address | Replace `hello@izrahvendiola.com` everywhere (it's a placeholder) |
