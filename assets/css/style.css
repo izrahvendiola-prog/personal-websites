@@ -768,7 +768,7 @@ h2 {
    driven by --w / --off / height %, so it scales as one unit.
 ------------------------------------------------------------ */
 .hero-card {
-  --w: clamp(260px, 30vw, 360px);          /* card width: scales with the screen */
+  --w: clamp(230px, 26vw, 315px);        /* card width: scales with the screen */
   --off: calc(var(--w) * 0.05);            /* gold frame offset */
   --radius: 50% 50% 26px 26px / 36.2% 36.2% 26px 26px;   /* arch shape */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
