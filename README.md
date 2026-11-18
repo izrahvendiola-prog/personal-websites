@@ -19,19 +19,25 @@ no frameworks, no build step, no jQuery.
   Finguard reference: full-bleed full-width layout, a
   consistent solid dark header bar, alternating dark/light full-bleed bands, huge
   condensed uppercase display type (Anton × DM Sans × JetBrains Mono), numbered
-  feature rows with an overlapping "Currently" card, a tilted portrait cutout,
+  feature rows with an overlapping "Currently" card, an arch portrait card,
   a numbered steps rail, flat sparkle accents, static project image tiles and a
   wine CTA band and dark footer with giant brand text. Izrah's palette throughout:
   deep wine `#5B1B32` for the CTA band, deep purple `#6B21A8` / amber `#F4C66A`
-  accents on black & white — flat colors only, no gradients, no glassmorphism.
+  accents on black & white — flat colors only. The portrait card is the one
+  exception: a diagonal violet gradient with SVG HUD details.
 - **Blueprint dot grid** — a 24px dot field with larger 96px major dots spans the
   full page, tinted purple on light surfaces and inverted to white on the dark
   header, wine CTA and footer bands. Tokens: `--grid-cell`, `--grid-dot*`.
-- **Portrait poster** — each cutout stands in front of a flat purple plate with an
-  amber plate offset 16px behind it, like a second colour pass that never quite
-  lined up, plus a small amber registration square at the top corner. The plate
-  top edge sits at the shoulders so the head breaks out of the colour field; both
-  plates stay square to the grid while the portrait keeps its tilt.
+- **Portrait card** — an arch-shaped viewfinder: a diagonal violet gradient
+  (`#b45eff → #541caa`) with a soft crown glow and a faint dot grid over it.
+  A 2px gold (`#f2c14e`) keyline arch sits just behind and down-right of the
+  card; the cutout rises above the arch and fades into the panel at the bottom.
+  The HUD is drawn in SVG (aperture ring, thirds grid, corner brackets, REC/RAW,
+  `f/1.8 · 1/250 · ISO 100` readout) alongside a pen-tool bezier. On load the
+  frame and overlays fade in, the photo rises 60px, the pen draws itself and REC
+  blinks; everything is skipped for `prefers-reduced-motion`. Width is a
+  `clamp(260px, 30vw, 360px)` with a fixed `aspect-ratio`, so it scales cleanly
+  at every breakpoint.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.

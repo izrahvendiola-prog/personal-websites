@@ -92,11 +92,6 @@
     align-items: center;
   }
 
-  .hero-figure .portrait {
-    height: min(24rem, 82vw);
-    width: auto;
-  }
-
   .section-head.split {
     grid-template-columns: 1fr;
   }
@@ -138,11 +133,6 @@
 
 /* ---------- Phones ---------- */
 @media (max-width: 575.98px) {
-  .hero-figure .portrait {
-    height: min(21rem, 88vw);
-    width: auto;
-  }
-
   .hero-socials .social-btn {
     width: 2.3rem;
     height: 2.3rem;

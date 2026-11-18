@@ -88,13 +88,57 @@
   }
 
   /* ----------------------------------------------------------
+     Link prefetch
+     Warms same-origin pages on hover, touch-down or keyboard focus so
+     the next navigation starts with the HTML already cached.
+  ---------------------------------------------------------- */
+  function initPrefetch() {
+    /* Skip on metered or very slow connections */
+    const conn = navigator.connection;
+    if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ""))) return;
+
+    const done = new Set();
+
+    const prefetch = (link) => {
+      if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
+
+      let url;
+      try {
+        url = new URL(link.href, location.href);
+      } catch (_err) {
+        return;
+      }
+      if (url.origin !== location.origin) return;
+      if (!/\.html?$/i.test(url.pathname) && url.pathname.charAt(url.pathname.length - 1) !== "/") return;
+      if (url.pathname === location.pathname && url.search === location.search) return;
+      if (done.has(url.href)) return;
+      done.add(url.href);
+
+      const tag = document.createElement("link");
+      tag.rel = "prefetch";
+      tag.href = url.href;
+      document.head.appendChild(tag);
+    };
+
+    const onIntent = (e) => {
+      const target = e.target;
+      const link = target && target.closest ? target.closest("a[href]") : null;
+      if (link) prefetch(link);
+    };
+
+    document.addEventListener("pointerover", onIntent, { passive: true });
+    document.addEventListener("pointerdown", onIntent, { passive: true });
+    document.addEventListener("focusin", onIntent);
+  }
+
+  /* ----------------------------------------------------------
      Page transitions
      - Chrome 126+: cross-document View Transitions via CSS
        (@view-transition in style.css) — no JS needed.
      - Everywhere else: quick fade-out fallback before navigating.
   ---------------------------------------------------------- */
   function initPageTransitions() {
-    const supportsDocVT = "onpageswap" in document;
+    const supportsDocVT = "onpageswap" in window;
     if (supportsDocVT || reducedMotion.matches) return;
 
     let navigating = false;
@@ -121,8 +165,35 @@
       doc.classList.add("page-leaving");
       window.setTimeout(() => {
         location.href = link.href;
-      }, 170);
+      }, 110);
     });
+  }
+
+  /* ----------------------------------------------------------
+     Hero card
+     Plays the entrance once, when the card scrolls into view.
+  ---------------------------------------------------------- */
+  function initHeroCard() {
+    const card = document.getElementById("heroCard");
+    if (!card) return;
+
+    if (!("IntersectionObserver" in window)) {
+      card.classList.add("in");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("in");
+          observer.disconnect();
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(card);
   }
 
   /* ----------------------------------------------------------
@@ -130,7 +201,9 @@
   ---------------------------------------------------------- */
   function initAnimations() {
     initReveals();
+    initHeroCard();
     initParallax();
+    initPrefetch();
     initPageTransitions();
   }
 

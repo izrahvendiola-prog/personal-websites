@@ -21,21 +21,23 @@
       }
       d.setAttribute("data-theme", t);
       /* Cross-document View Transitions handle page fades where supported */
-      if ("onpagereveal" in document) d.classList.add("vt");
+      if ("onpagereveal" in window) d.classList.add("vt");
     })();
   </script>
 
   <!-- Bootstrap 5 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="preload" as="image" href="assets/images/profile-cutout.webp" type="image/webp" fetchpriority="high">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -119,9 +121,92 @@
               </div>
             </div>
             <div class="col-lg-4">
-              <figure class="hero-figure mb-0" data-animate="scale-in" data-delay="220">
-                <img class="portrait" src="assets/images/profile-cutout.webp"
-                  alt="Portrait photo of Izrah Vendiola" width="463" height="783">
+              <figure class="hero-figure mb-0">
+                <div class="hero-card" id="heroCard">
+                  <div class="frame"></div>
+
+                  <div class="panel">
+                    <!-- BEHIND the photo: dots, thirds grid, aperture, pen-tool curve -->
+                    <svg class="layer" viewBox="0 0 680 940" aria-hidden="true">
+                      <defs>
+                        <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+                          <circle cx="18" cy="18" r="1.7" fill="#fff" fill-opacity=".18"/>
+                        </pattern>
+                        <!-- one aperture blade, rotated 6 times below -->
+                        <path id="blade" d="M120.7 32.3 L-13.9 265.6 M120.7 32.3 L32.3 120.7"/>
+                      </defs>
+
+                      <rect width="680" height="940" fill="url(#dots)"/>
+
+                      <!-- rule-of-thirds grid -->
+                      <g stroke="#fff" stroke-opacity=".16" stroke-width="2">
+                        <line x1="226.7" y1="0" x2="226.7" y2="940"/><line x1="453.3" y1="0" x2="453.3" y2="940"/>
+                        <line x1="0" y1="313.3" x2="680" y2="313.3"/><line x1="0" y1="626.7" x2="680" y2="626.7"/>
+                      </g>
+
+                      <!-- camera aperture -->
+                      <g transform="translate(340 390)" fill="none" stroke="#fff" stroke-linecap="round">
+                        <circle r="300" stroke-opacity=".28" stroke-width="3"/>
+                        <circle r="266" stroke-opacity=".16" stroke-width="2"/>
+                        <g stroke-opacity=".28" stroke-width="3">
+                          <use href="#blade"/>
+                          <use href="#blade" transform="rotate(60)"/>
+                          <use href="#blade" transform="rotate(120)"/>
+                          <use href="#blade" transform="rotate(180)"/>
+                          <use href="#blade" transform="rotate(240)"/>
+                          <use href="#blade" transform="rotate(300)"/>
+                        </g>
+                      </g>
+
+                      <!-- pen-tool bezier curve (draws itself) -->
+                      <path class="bezier" pathLength="1" d="M30 900 C142 830 18 730 42 650"
+                            fill="none" stroke="#f2c14e" stroke-width="5" stroke-linecap="round"/>
+                      <g class="pen-extras">
+                        <g stroke="#fff" stroke-opacity=".7" stroke-width="2">
+                          <line x1="30" y1="900" x2="142" y2="830"/><line x1="42" y1="650" x2="18" y2="730"/>
+                        </g>
+                        <g fill="#fff" stroke="#f2c14e" stroke-width="3">
+                          <circle cx="142" cy="830" r="6"/><circle cx="18" cy="730" r="6"/>
+                          <rect x="22" y="892" width="16" height="16"/><rect x="34" y="642" width="16" height="16"/>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+
+                  <!-- the photo (transparent PNG): swap the src with your own cutout -->
+                  <div class="photo-wrap">
+                    <div class="photo-lift">
+                      <img class="photo" src="assets/images/profile-cutout.webp" alt="Portrait photo of Izrah Vendiola">
+                    </div>
+                  </div>
+
+                  <!-- IN FRONT of the photo: viewfinder, REC, RAW, camera readout -->
+                  <div class="layer layer-front" aria-hidden="true">
+                    <svg class="layer" viewBox="0 0 680 940" aria-hidden="true">
+                      <!-- viewfinder corner brackets -->
+                      <path d="M70 221 V175 H116 M564 175 H610 V221 M70 859 V905 H116 M610 859 V905 H564"
+                            fill="none" stroke="#eef2ff" stroke-width="4"/>
+
+                      <!-- REC -->
+                      <circle class="rec-dot" cx="98" cy="202" r="7" fill="#ff4646"/>
+                      <text class="mono" x="114" y="209" font-size="20" fill="#eef2ff">REC</text>
+
+                      <!-- RAW badge -->
+                      <rect x="486" y="188" width="100" height="36" rx="18" fill="#f2c14e"/>
+                      <text class="mono" x="536" y="213" font-size="20" fill="#14102a" text-anchor="middle">RAW</text>
+
+                      <!-- camera readout -->
+                      <g class="readout">
+                        <text class="mono" x="90" y="868" font-size="21" fill="#eef2ff">f/1.8   1/250   ISO 100</text>
+                        <g fill="none" stroke="#eef2ff" stroke-width="3">
+                          <rect x="500" y="852" width="40" height="20"/>
+                        </g>
+                        <rect x="504" y="856" width="26" height="12" fill="#eef2ff"/>
+                        <rect x="543" y="858" width="4" height="8" fill="#eef2ff"/>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
               </figure>
             </div>
             <div class="col-lg-3">
