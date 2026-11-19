@@ -1,6 +1,8 @@
 # izrah. — Personal Website
 
-A modern, creative, semi-portfolio personal website for **Izrah Vendiola**.
+A modern, creative, semi-portfolio personal website for **Izrah Vendiola** —
+a third-year student focused on graphics and photography who is also learning
+front-end development (HTML, CSS, JavaScript and Bootstrap).
 Built with pure HTML5, CSS3 and vanilla JavaScript on top of Bootstrap 5 —
 no frameworks, no build step, no jQuery.
 
