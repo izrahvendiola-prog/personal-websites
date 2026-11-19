@@ -206,7 +206,7 @@ img {
 }
 
 [id] {
-  scroll-margin-top: 24px;
+  scroll-margin-top: var(--header-h, 72px);
 }
 
 /* ------------------------------------------------------------
@@ -531,10 +531,17 @@ h2 {
    06. Header — consistent solid dark bar (Finguard reference)
 ------------------------------------------------------------ */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
   background: var(--clr-header);
   padding: 0.55rem 0;
-  transition: background-color var(--dur-med) ease;
+  transition: background-color var(--dur-med) ease, box-shadow var(--dur-med) ease;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-width='2.5' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.site-header.scrolled {
+  box-shadow: 0 12px 30px -18px rgba(0, 0, 0, 0.8);
 }
 
 .header-inner {
@@ -2106,13 +2113,15 @@ a.feature-row {
   max-width: 50rem;
 }
 
-.page-hero h1 {
+.page-hero h1,
+.page-hero .page-title {
   font-size: var(--fs-h1);
   margin-bottom: 1.1rem;
   color: #ffffff;
 }
 
-.page-hero h1 .mark {
+.page-hero h1 .mark,
+.page-hero .page-title .mark {
   color: var(--clr-accent-bright);
 }
 

@@ -6,15 +6,17 @@ no frameworks, no build step, no jQuery.
 
 ## ✨ Features
 
-- **5 pages** — Home, About, Projects, Experience & Education, Contact — sharing one
-  design system, navigation, footer and theme.
+- **One scrolling page** — Home, About, Projects, Experience and Contact now live on
+  `index.html` as stacked sections. A sticky header links straight to `#about`,
+  `#projects`, `#experience` and `#contact`, with an active-section indicator.
+  The old subpage URLs (`pages/about.html`, …) redirect to those anchors.
 - **Light & dark mode** with CSS variables, persisted in `localStorage`, falling back
   to the OS preference. Toggling uses a circular reveal via the **View Transitions API**
   (with a graceful fallback everywhere else).
 - **Scroll animations** via `IntersectionObserver` — fade-up, slide-left/right, scale-in,
   staggered card groups — all gated behind `prefers-reduced-motion`.
-- **Page transitions** — cross-document View Transitions where supported, quick fade-out
-  fallback otherwise.
+- **Anchor transitions** — smooth in-page jumps that stop just below the sticky header;
+  cross-document View Transitions still cover the redirect stubs.
 - **Creative details** — a brutalist-editorial design system adapted from the
   Finguard reference: full-bleed full-width layout, a
   consistent solid dark header bar, alternating dark/light full-bleed bands, huge
@@ -31,13 +33,13 @@ no frameworks, no build step, no jQuery.
 - **Portrait card** — an arch-shaped viewfinder: a diagonal violet gradient
   (`#b45eff → #541caa`) with a soft crown glow and a faint dot grid over it.
   A 2px gold (`#f2c14e`) keyline arch sits just behind and down-right of the
-  card; the cutout rises above the arch and fades into the panel at the bottom.
+  card; the cutout sits inside the arch and fades into the panel at the bottom.
   The HUD is drawn in SVG (aperture ring, thirds grid, corner brackets, REC/RAW,
   `f/1.8 · 1/250 · ISO 100` readout) alongside a pen-tool bezier. On load the
   frame and overlays fade in, the photo rises 60px, the pen draws itself and REC
   blinks; everything is skipped for `prefers-reduced-motion`. Width is a
-  `clamp(260px, 30vw, 360px)` with a fixed `aspect-ratio`, so it scales cleanly
-  at every breakpoint.
+  `clamp(230px, 26vw, 315px)` with a fixed `aspect-ratio`, so it scales cleanly
+  at every breakpoint. Both the Home and About instances animate independently.
 - **Working interactions** — mobile navigation, project category filtering, project
   detail modals, contact form validation with toast feedback, copy-to-clipboard email
   chip, animated theme toggle, back-to-top button.
@@ -49,20 +51,20 @@ no frameworks, no build step, no jQuery.
 ```
 personal-websites/
 │
-├── index.html                 # Home
-├── pages/
-│   ├── about.html             # About Me
-│   ├── projects.html          # Projects (filters + modals)
-│   ├── experience.html        # Experience & Education (timelines)
-│   └── contact.html           # Contact (form + FAQ)
+├── index.html                 # The whole site — one scrolling page
+├── pages/                     # Legacy URLs → redirect to index.html#<section>
+│   ├── about.html             #   → #about
+│   ├── projects.html          #   → #projects
+│   ├── experience.html        #   → #experience
+│   └── contact.html           #   → #contact
 │
 ├── assets/
 │   ├── css/
 │   │   ├── style.css          # Design system, themes, components, animations
 │   │   └── responsive.css     # Breakpoint refinements
 │   ├── js/
-│   │   ├── main.js            # Theme, nav, form, filters, toasts
-│   │   └── animations.js      # Scroll reveals, parallax, page transitions
+│   │   ├── main.js            # Theme, sticky nav + scroll spy, form, filters, toasts
+│   │   └── animations.js      # Scroll reveals, hero cards, parallax, page transitions
 │   └── images/
 │       ├── favicon.svg
 │       ├── profile-cutout.webp # Portrait cutout (transparent background)
@@ -89,13 +91,13 @@ No build step required. Either:
 | What | Where |
 |------|-------|
 | Colors (deep wine band, purple / amber accents), radii, motion | `assets/css/style.css` → *Design tokens* section (`:root` / `[data-theme="dark"]`) |
-| Fonts | The Google Fonts `<link>` in each page's `<head>` + the `--font-*` variables |
+| Fonts | The Google Fonts `<link>` in `index.html`'s `<head>` + the `--font-*` variables |
 | Theme storage key | `assets/js/main.js` → `THEME_KEY` |
-| Portrait cutout | Replace `assets/images/profile-cutout.webp` with your own transparent PNG/WebP (the layout scales it by height and drops the shadow automatically). If you swap in a new background-removed PNG, trim it to the alpha bounding box, then update the `width`/`height` attributes on the portrait `<img>` in `index.html` and `pages/about.html` |
+| Portrait cutout | Replace `assets/images/profile-cutout.webp` with your own transparent PNG/WebP (the layout scales it by height and drops the shadow automatically). If you swap in a new background-removed PNG, trim it to the alpha bounding box and re-pad it so the subject stays centred inside the arch |
 | Project thumbnails | Replace files in `assets/images/projects/` |
-| Social links | Search each page for `github.com` / `linkedin.com` / `instagram.com` and point them at real profiles |
+| Social links | Search `index.html` for `github.com` / `linkedin.com` / `instagram.com` and point them at real profiles |
 | Email address | Replace `hello@izrahvendiola.com` everywhere (it's a placeholder) |
-| Page copy | Directly in each HTML file — timeline entries, project blurbs and fun facts are all **placeholder content** meant to be edited |
+| Page copy | Directly in `index.html` — timeline entries, project blurbs and fun facts are all **placeholder content** meant to be edited |
 
 ### Hooking up the contact form
 

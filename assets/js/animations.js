@@ -174,11 +174,13 @@
      Plays the entrance once, when the card scrolls into view.
   ---------------------------------------------------------- */
   function initHeroCard() {
-    const card = document.getElementById("heroCard");
-    if (!card) return;
+    const cards = document.querySelectorAll(".hero-card");
+    if (!cards.length) return;
 
-    if (!("IntersectionObserver" in window)) {
-      card.classList.add("in");
+    const allIn = () => cards.forEach((card) => card.classList.add("in"));
+
+    if (!("IntersectionObserver" in window) || reducedMotion.matches) {
+      allIn();
       return;
     }
 
@@ -187,13 +189,13 @@
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           entry.target.classList.add("in");
-          observer.disconnect();
+          observer.unobserve(entry.target);
         });
       },
       { threshold: 0.3 }
     );
 
-    observer.observe(card);
+    cards.forEach((card) => observer.observe(card));
   }
 
   /* ----------------------------------------------------------

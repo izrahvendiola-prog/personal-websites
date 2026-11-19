@@ -114,19 +114,129 @@
     const nav = document.getElementById("siteNav");
     if (!nav) return;
 
-    const onScroll = () => nav.classList.toggle("scrolled", window.scrollY > 10);
+    const collapseEl = nav.querySelector(".navbar-collapse");
+    const mobileNav = window.matchMedia("(max-width: 991.98px)");
+
+    /* Tell CSS how tall the sticky bar is so anchors land below it.
+       Ignore the expanded mobile menu — only the closed bar counts. */
+    const syncHeaderHeight = () => {
+      if (
+        collapseEl &&
+        mobileNav.matches &&
+        (collapseEl.classList.contains("show") ||
+          collapseEl.classList.contains("collapsing"))
+      ) {
+        return;
+      }
+      doc.style.setProperty("--header-h", `${nav.offsetHeight}px`);
+    };
+
+    /* Section links in page order (Home → About → Projects → Experience → Contact) */
+    const links = Array.from(nav.querySelectorAll('.nav-link[href^="#"]'));
+    const sections = links
+      .map((link) => {
+        const target = document.getElementById(link.getAttribute("href").slice(1));
+        return target ? { link, target } : null;
+      })
+      .filter(Boolean);
+
+    let spyQueued = false;
+
+    const updateActive = () => {
+      spyQueued = false;
+      if (!sections.length) return;
+
+      const offset = nav.offsetHeight + 24;
+      let current = sections[0];
+
+      sections.forEach((item) => {
+        if (item.target.getBoundingClientRect().top <= offset) current = item;
+      });
+
+      /* At the very bottom, the last section wins even if it is short */
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom) current = sections[sections.length - 1];
+
+      sections.forEach(({ link }) => {
+        const active = link === current.link;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    const onScroll = () => {
+      nav.classList.toggle("scrolled", window.scrollY > 10);
+      if (!spyQueued) {
+        spyQueued = true;
+        window.requestAnimationFrame(updateActive);
+      }
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener(
+      "resize",
+      () => {
+        syncHeaderHeight();
+        updateActive();
+      },
+      { passive: true }
+    );
+
+    syncHeaderHeight();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncHeaderHeight).catch(() => {});
+    }
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(syncHeaderHeight).observe(nav);
+    }
 
     /* Close the mobile menu after choosing a destination */
-    const collapseEl = nav.querySelector(".navbar-collapse");
     if (collapseEl && window.bootstrap) {
+      const getCollapse = () =>
+        window.bootstrap.Collapse.getInstance(collapseEl) ||
+        window.bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+
       collapseEl.addEventListener("click", (e) => {
-        if (!e.target.closest("a")) return;
-        const instance =
-          window.bootstrap.Collapse.getInstance(collapseEl) ||
-          window.bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
-        if (collapseEl.classList.contains("show")) instance.hide();
+        const link = e.target.closest("a");
+        if (!link) return;
+
+        const href = link.getAttribute("href") || "";
+        const menuOpen = collapseEl.classList.contains("show");
+        if (!menuOpen) return;
+
+        if (!href.startsWith("#")) {
+          getCollapse().hide();
+          return;
+        }
+
+        /* The collapsing menu changes the page height, so scroll only
+           once it has finished closing — otherwise the anchor lands short. */
+        e.preventDefault();
+        getCollapse().hide();
+        collapseEl.addEventListener(
+          "hidden.bs.collapse",
+          () => {
+            const target = document.getElementById(href.slice(1));
+            if (target) {
+              target.scrollIntoView({
+                behavior: reducedMotion.matches ? "auto" : "smooth",
+                block: "start",
+              });
+            }
+            if (window.history && history.replaceState) {
+              try {
+                history.replaceState(null, "", href);
+              } catch (_err) {
+                /* file:// or sandboxed contexts can refuse this */
+              }
+            }
+          },
+          { once: true }
+        );
       });
     }
   }
