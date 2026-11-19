@@ -535,7 +535,7 @@ h2 {
   top: 0;
   z-index: 1030;
   background: var(--clr-header);
-  padding: 0.55rem 0;
+  padding: 0.5rem 0;
   transition: background-color var(--dur-med) ease, box-shadow var(--dur-med) ease;
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-width='2.5' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -551,14 +551,22 @@ h2 {
 
 /* Keep header actions (socials, theme toggle, CTA) comfortably apart */
 .nav-actions {
-  gap: 0.7rem;
+  gap: 0.65rem;
+}
+
+/* Slim header: keep the bar compact so it steals less vertical space */
+.site-header .btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
 }
 
 .navbar-brand {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1.7rem;
+  font-size: 1.55rem;
+  line-height: 1.1;
   letter-spacing: 0.02em;
+  padding-block: 0.25rem;
   color: #ffffff;
   transition: opacity var(--dur-fast) ease;
 }
@@ -577,7 +585,7 @@ h2 {
   position: relative;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.78);
-  padding: 0.5rem 0.95rem;
+  padding: 0.3rem 0.95rem;
   margin-inline: 0.05rem;
   transition: color var(--dur-fast) ease;
 }
@@ -624,9 +632,9 @@ h2 {
 }
 
 .nav-socials .social-btn {
-  width: 2.1rem;
-  height: 2.1rem;
-  font-size: 0.9rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.85rem;
   border: 0;
   color: rgba(255, 255, 255, 0.75);
 }
@@ -640,15 +648,15 @@ h2 {
 /* Theme toggle on the dark header */
 .theme-toggle {
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1.5px solid rgba(255, 255, 255, 0.4);
   background: transparent;
   color: #ffffff;
   display: inline-grid;
   place-items: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: transform var(--dur-fast) var(--ease-out),
     background-color var(--dur-fast) ease, color var(--dur-fast) ease,
