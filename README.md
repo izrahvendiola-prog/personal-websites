@@ -70,7 +70,7 @@ personal-websites/
 │   └── images/
 │       ├── favicon.svg
 │       ├── profile-cutout.webp # Portrait cutout (transparent background)
-│       └── projects/          # project-1.svg … project-6.svg placeholders
+│       └── projects/          # project-1.jpg … project-4.jpg + project-3 photo set
 │
 └── README.md
 ```
