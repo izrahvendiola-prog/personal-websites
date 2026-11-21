@@ -1,12 +1,6 @@
-/* ============================================================
-   izrah. — Personal Website
-   responsive.css · Breakpoint refinements
-   (Bootstrap handles the grid; this file tunes the custom UI)
-   ============================================================ */
+/* Responsive tweaks for tablet and mobile breakpoints. */
 
-/* ---------- Tablet & below: collapsed navigation ---------- */
 @media (max-width: 991.98px) {
-  /* The solid header grows a white dropdown card when the menu opens */
   .site-header .navbar-collapse {
     background: var(--clr-surface);
     border: 1px solid var(--clr-border);
@@ -58,7 +52,6 @@
     color: var(--clr-on-accent);
   }
 
-  /* Hero stacks: headline, copy, portrait, steps rail */
   .hero-figure {
     margin-block: 2.25rem;
   }
@@ -71,7 +64,6 @@
     max-width: none;
   }
 
-  /* The overlapping card settles below the rows */
   .now-panel.overlap {
     position: static;
     transform: none;
@@ -79,7 +71,6 @@
   }
 }
 
-/* ---------- Large phones / small tablets ---------- */
 @media (max-width: 767.98px) {
   .hero-line {
     font-size: clamp(2.2rem, 9.5vw, 3rem);
@@ -118,7 +109,6 @@
     align-items: flex-start;
   }
 
-  /* Stack footer columns and shrink the FAB on phones */
   .site-footer .col-6 {
     flex: 0 0 auto;
     width: 100%;
@@ -131,7 +121,6 @@
   }
 }
 
-/* ---------- Phones ---------- */
 @media (max-width: 575.98px) {
   .hero-socials .social-btn {
     width: 2.3rem;

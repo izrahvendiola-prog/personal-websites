@@ -1,16 +1,16 @@
 # izrah. — Personal Website
 
 A modern, creative, semi-portfolio personal website for **Izrah Vendiola** —
-a third-year student focused on graphics and photography who is also learning
+a third-year student focused on Canva graphics and RAW photography who is also learning
 front-end development (HTML, CSS, JavaScript and Bootstrap).
 Built with pure HTML5, CSS3 and vanilla JavaScript on top of Bootstrap 5 —
 no frameworks, no build step, no jQuery.
 
-## ✨ Features
+## Features
 
-- **One scrolling page** — Home, About, Projects, Experience and Contact now live on
+- **One scrolling page** — Home, About, Projects, Education and Contact now live on
   `index.html` as stacked sections. A sticky header links straight to `#about`,
-  `#projects`, `#experience` and `#contact`, with an active-section indicator.
+  `#projects`, `#education` and `#contact`, with an active-section indicator.
   The old subpage URLs (`pages/about.html`, …) redirect to those anchors.
 - **Light & dark mode** with CSS variables, persisted in `localStorage`, falling back
   to the OS preference. Toggling uses a circular reveal via the **View Transitions API**
@@ -48,7 +48,7 @@ no frameworks, no build step, no jQuery.
 - **Responsive & accessible** — semantic HTML5, skip link, `aria-*` labels, focus
   styles, keyboard-friendly components, fluid type scale.
 
-## 🗂 Project structure
+## Project structure
 
 ```
 personal-websites/
@@ -57,13 +57,14 @@ personal-websites/
 ├── pages/                     # Legacy URLs → redirect to index.html#<section>
 │   ├── about.html             #   → #about
 │   ├── projects.html          #   → #projects
-│   ├── experience.html        #   → #experience
+│   ├── experience.html        #   → #education (legacy URL)
 │   └── contact.html           #   → #contact
 │
 ├── assets/
 │   ├── css/
 │   │   ├── style.css          # Design system, themes, components, animations
-│   │   └── responsive.css     # Breakpoint refinements
+│   │   ├── responsive.css     # Breakpoint refinements
+│   │   └── redirect.css       # Styling for the legacy URL stubs in pages/
 │   ├── js/
 │   │   ├── main.js            # Theme, sticky nav + scroll spy, form, filters, toasts
 │   │   └── animations.js      # Scroll reveals, hero cards, parallax, page transitions
@@ -75,7 +76,7 @@ personal-websites/
 └── README.md
 ```
 
-## 🚀 Running it
+## Running it
 
 No build step required. Either:
 
@@ -88,7 +89,7 @@ No build step required. Either:
   # then visit http://localhost:8080
   ```
 
-## 🎨 Customizing
+## Customizing
 
 | What | Where |
 |------|-------|
@@ -97,7 +98,7 @@ No build step required. Either:
 | Theme storage key | `assets/js/main.js` → `THEME_KEY` |
 | Portrait cutout | Replace `assets/images/profile-cutout.webp` with your own transparent PNG/WebP (the layout scales it by height and drops the shadow automatically). If you swap in a new background-removed PNG, trim it to the alpha bounding box and re-pad it so the subject stays centred inside the arch |
 | Project thumbnails | Replace files in `assets/images/projects/` |
-| Social links | Search `index.html` for `github.com` / `linkedin.com` / `instagram.com` and point them at real profiles |
+| Social links | Search `index.html` for `facebook.com` / `github.com` / `instagram.com` and point them at real profiles |
 | Email address | Replace `hello@izrahvendiola.com` everywhere (it's a placeholder) |
 | Page copy | Directly in `index.html` — timeline entries, project blurbs and fun facts are all **placeholder content** meant to be edited |
 
@@ -116,14 +117,14 @@ await fetch("https://formspree.io/f/yourFormId", {
 });
 ```
 
-## 🧰 Tech stack
+## Tech stack
 
 - HTML5, CSS3, vanilla JavaScript (ES2017+, no dependencies)
 - [Bootstrap 5.3](https://getbootstrap.com/) — grid, collapse, modal, accordion, toast
 - [Bootstrap Icons](https://icons.getbootstrap.com/) 1.11
 - Google Fonts — Anton, DM Sans, JetBrains Mono
 
-## ♿ Accessibility notes
+## Accessibility notes
 
 - `prefers-reduced-motion` disables reveals, floating sparkles and the circle reveal.
 - Decorative elements are `aria-hidden`; icon-only links/buttons carry `aria-label`s.

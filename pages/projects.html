@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Legacy URL: redirects to the Projects section on the home page. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,38 +11,7 @@
   <script>
     location.replace("../index.html#projects");
   </script>
-  <style>
-    :root { color-scheme: light dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh; display: grid; place-items: center;
-      padding: 1.5rem; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background: #faf7fd; color: #121212;
-    }
-    .redirect { max-width: 30rem; text-align: center; }
-    .eyebrow {
-      display: inline-block; margin: 0 0 0.75rem; font-size: 0.72rem;
-      font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-      color: #6b21a8;
-    }
-    h1 {
-      margin: 0 0 1rem; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.05;
-      text-transform: uppercase; letter-spacing: 0.01em;
-    }
-    p { margin: 0 0 1.75rem; line-height: 1.7; color: #554e5c; }
-    a {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none;
-      font-weight: 600; color: #ffffff; background: #6b21a8;
-    }
-    a:hover, a:focus-visible { background: #581c87; }
-    @media (prefers-color-scheme: dark) {
-      body { background: #121212; color: #f7f4fa; }
-      .eyebrow, a { color: #e9d5ff; }
-      a { color: #121212; background: #c9a0f2; }
-      p { color: #c7bed0; }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/redirect.css">
 </head>
 <body>
   <main class="redirect">

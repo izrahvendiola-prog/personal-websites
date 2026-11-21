@@ -1,7 +1,5 @@
-/* ============================================================
-   izrah. — Personal Website
-   main.js · Theme management, navigation, forms, filters
-   ============================================================ */
+/* Site behaviour: theme toggle, navigation, project filters, contact form, modals and toasts. */
+
 (function () {
   "use strict";
 
@@ -10,9 +8,6 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-  /* ----------------------------------------------------------
-     Theme
-  ---------------------------------------------------------- */
   function getStoredTheme() {
     try {
       return localStorage.getItem(THEME_KEY);
@@ -25,7 +20,6 @@
     try {
       localStorage.setItem(THEME_KEY, theme);
     } catch (_err) {
-      /* private mode — preference simply won't persist */
     }
   }
 
@@ -48,7 +42,6 @@
   function initTheme() {
     applyTheme(getStoredTheme() || getSystemTheme());
 
-    /* Follow the OS when the user hasn't chosen a theme yet */
     darkQuery.addEventListener("change", (e) => {
       if (!getStoredTheme()) applyTheme(e.matches ? "dark" : "light");
     });
@@ -57,7 +50,6 @@
     if (toggle) toggle.addEventListener("click", toggleTheme);
   }
 
-  /* Toggle with a circular reveal (View Transitions API, progressive) */
   function toggleTheme() {
     const next = currentTheme() === "dark" ? "light" : "dark";
 
@@ -107,9 +99,6 @@
     }
   }
 
-  /* ----------------------------------------------------------
-     Navigation
-  ---------------------------------------------------------- */
   function initNavbar() {
     const nav = document.getElementById("siteNav");
     if (!nav) return;
@@ -117,8 +106,6 @@
     const collapseEl = nav.querySelector(".navbar-collapse");
     const mobileNav = window.matchMedia("(max-width: 991.98px)");
 
-    /* Tell CSS how tall the sticky bar is so anchors land below it.
-       Ignore the expanded mobile menu — only the closed bar counts. */
     const syncHeaderHeight = () => {
       if (
         collapseEl &&
@@ -131,7 +118,6 @@
       doc.style.setProperty("--header-h", `${nav.offsetHeight}px`);
     };
 
-    /* Section links in page order (Home → About → Projects → Experience → Contact) */
     const links = Array.from(nav.querySelectorAll('.nav-link[href^="#"]'));
     const sections = links
       .map((link) => {
@@ -153,7 +139,6 @@
         if (item.target.getBoundingClientRect().top <= offset) current = item;
       });
 
-      /* At the very bottom, the last section wins even if it is short */
       const atBottom =
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 2;
@@ -194,7 +179,6 @@
       new ResizeObserver(syncHeaderHeight).observe(nav);
     }
 
-    /* Close the mobile menu after choosing a destination */
     if (collapseEl && window.bootstrap) {
       const getCollapse = () =>
         window.bootstrap.Collapse.getInstance(collapseEl) ||
@@ -213,8 +197,6 @@
           return;
         }
 
-        /* The collapsing menu changes the page height, so scroll only
-           once it has finished closing — otherwise the anchor lands short. */
         e.preventDefault();
         getCollapse().hide();
         collapseEl.addEventListener(
@@ -231,7 +213,6 @@
               try {
                 history.replaceState(null, "", href);
               } catch (_err) {
-                /* file:// or sandboxed contexts can refuse this */
               }
             }
           },
@@ -241,9 +222,6 @@
     }
   }
 
-  /* ----------------------------------------------------------
-     Back to top
-  ---------------------------------------------------------- */
   function initBackTop() {
     const btn = document.querySelector(".back-top");
     if (!btn) return;
@@ -257,9 +235,6 @@
     );
   }
 
-  /* ----------------------------------------------------------
-     Toasts
-  ---------------------------------------------------------- */
   function escapeHtml(value) {
     return value.replace(/[&<>"']/g, (ch) => ({
       "&": "&amp;",
@@ -293,9 +268,6 @@
     el.addEventListener("hidden.bs.toast", () => el.remove());
   }
 
-  /* ----------------------------------------------------------
-     Copy-to-clipboard chips
-  ---------------------------------------------------------- */
   function initCopyButtons() {
     document.querySelectorAll("[data-copy]").forEach((btn) => {
       btn.addEventListener("click", async () => {
@@ -310,9 +282,6 @@
     });
   }
 
-  /* ----------------------------------------------------------
-     Contact form (front-end validation + feedback)
-  ---------------------------------------------------------- */
   function initContactForm() {
     const form = document.getElementById("contactForm");
     if (!form) return;
@@ -336,7 +305,6 @@
       btn.disabled = true;
       btn.innerHTML = 'Sending <span class="dots-sending" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span>';
 
-      /* Simulated delivery — see README to wire a real backend. */
       window.setTimeout(() => {
         btn.disabled = false;
         btn.innerHTML = originalHtml;
@@ -347,9 +315,6 @@
     });
   }
 
-  /* ----------------------------------------------------------
-     Project filtering
-  ---------------------------------------------------------- */
   function initProjectFilter() {
     const bar = document.getElementById("filterBar");
     const grid = document.getElementById("projectGrid");
@@ -365,7 +330,7 @@
         if (show) {
           card.classList.remove("is-hidden");
           card.style.animationDelay = `${Math.min(visibleIndex * 65, 320)}ms`;
-          void card.offsetWidth; /* restart the pop animation */
+          void card.offsetWidth;
           card.classList.add("pop");
           visibleIndex += 1;
         } else {
@@ -386,18 +351,48 @@
     });
   }
 
-  /* ----------------------------------------------------------
-     Footer year
-  ---------------------------------------------------------- */
+  function initProjectModalLinks() {
+    if (!window.bootstrap) return;
+
+    document.querySelectorAll(".modal").forEach((modalEl) => {
+      modalEl.addEventListener("click", (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+
+        const href = link.getAttribute("href");
+        const target = document.getElementById(href.slice(1));
+        e.preventDefault();
+
+        modalEl.addEventListener(
+          "hidden.bs.modal",
+          () => {
+            if (target) {
+              target.scrollIntoView({
+                behavior: reducedMotion.matches ? "auto" : "smooth",
+                block: "start",
+              });
+            }
+            if (window.history && history.replaceState) {
+              try {
+                history.replaceState(null, "", href);
+              } catch (_err) {
+              }
+            }
+          },
+          { once: true }
+        );
+
+        window.bootstrap.Modal.getOrCreateInstance(modalEl).hide();
+      });
+    });
+  }
+
   function initYear() {
     document.querySelectorAll("[data-year]").forEach((el) => {
       el.textContent = new Date().getFullYear();
     });
   }
 
-  /* ----------------------------------------------------------
-     Boot
-  ---------------------------------------------------------- */
   function init() {
     initTheme();
     initNavbar();
@@ -405,6 +400,7 @@
     initCopyButtons();
     initContactForm();
     initProjectFilter();
+    initProjectModalLinks();
     initYear();
   }
 

@@ -1,26 +1,18 @@
-/* ============================================================
-   izrah. — Personal Website
-   animations.js · Scroll reveals, stagger, parallax,
-   and page transitions (View Transitions API, progressive)
-   ============================================================ */
+/* Motion: scroll reveals, hero card effects, parallax and page transitions. */
+
 (function () {
   "use strict";
 
   const doc = document.documentElement;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  /* ----------------------------------------------------------
-     Scroll reveals
-     Elements: [data-animate="fade-up|fade-in|slide-left|slide-right|scale-in"]
-     Optional: data-delay="ms" — or auto-stagger inside [data-animate-group]
-  ---------------------------------------------------------- */
   function initReveals() {
     const items = document.querySelectorAll("[data-animate]");
     if (!items.length) return;
 
     const show = (el) => {
       el.classList.add("in-view");
-      /* Clear the stagger delay once revealed so hover effects stay snappy */
+
       const delay = parseFloat(el.dataset.delay || "0", 10);
       const duration = (parseFloat(getComputedStyle(el).transitionDuration, 10) || 0.8) * 1000;
       window.setTimeout(() => el.style.setProperty("--anim-delay", "0ms"), delay + duration);
@@ -31,7 +23,6 @@
       return;
     }
 
-    /* Auto-stagger children of grouped containers */
     document.querySelectorAll("[data-animate-group]").forEach((group) => {
       group.querySelectorAll("[data-animate]").forEach((el, i) => {
         if (!el.dataset.delay) el.dataset.delay = String(i * 90);
@@ -58,10 +49,6 @@
     items.forEach((el) => observer.observe(el));
   }
 
-  /* ----------------------------------------------------------
-     Gentle pointer parallax on hero decorations
-     Targets: [data-parallax="depth"]
-  ---------------------------------------------------------- */
   function initParallax() {
     if (reducedMotion.matches || !window.matchMedia("(pointer: fine)").matches) return;
 
@@ -87,13 +74,7 @@
     );
   }
 
-  /* ----------------------------------------------------------
-     Link prefetch
-     Warms same-origin pages on hover, touch-down or keyboard focus so
-     the next navigation starts with the HTML already cached.
-  ---------------------------------------------------------- */
   function initPrefetch() {
-    /* Skip on metered or very slow connections */
     const conn = navigator.connection;
     if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ""))) return;
 
@@ -131,12 +112,6 @@
     document.addEventListener("focusin", onIntent);
   }
 
-  /* ----------------------------------------------------------
-     Page transitions
-     - Chrome 126+: cross-document View Transitions via CSS
-       (@view-transition in style.css) — no JS needed.
-     - Everywhere else: quick fade-out fallback before navigating.
-  ---------------------------------------------------------- */
   function initPageTransitions() {
     const supportsDocVT = "onpageswap" in window;
     if (supportsDocVT || reducedMotion.matches) return;
@@ -157,7 +132,7 @@
         return;
       }
       if (url.origin !== location.origin) return;
-      /* Same-page anchors: let the browser scroll smoothly instead */
+
       if (url.pathname === location.pathname && url.hash) return;
       if (url.pathname === location.pathname && url.search === location.search) return;
 
@@ -169,10 +144,6 @@
     });
   }
 
-  /* ----------------------------------------------------------
-     Hero card
-     Plays the entrance once, when the card scrolls into view.
-  ---------------------------------------------------------- */
   function initHeroCard() {
     const cards = document.querySelectorAll(".hero-card");
     if (!cards.length) return;
@@ -198,9 +169,6 @@
     cards.forEach((card) => observer.observe(card));
   }
 
-  /* ----------------------------------------------------------
-     Boot
-  ---------------------------------------------------------- */
   function initAnimations() {
     initReveals();
     initHeroCard();

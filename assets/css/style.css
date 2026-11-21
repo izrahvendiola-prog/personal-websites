@@ -1,54 +1,16 @@
-/* ============================================================
-   izrah. — Personal Website
-   style.css · Brutalist editorial system (Finguard-inspired)
-   ------------------------------------------------------------
-   Structure & motion language adapted from the Finguard
-   reference: alternating dark/light full-bleed bands, huge
-   condensed uppercase display type (Anton), numbered feature
-   rows with an overlapping card, static image tiles, circle
-   arrow buttons, sparkle accents.
-   Palette stays Izrah's: purple / pink / amber on black & white.
-   Flat colors only — no gradients or glassmorphism, apart from the
-   arch portrait card (violet gradient + glass HUD).
-   ------------------------------------------------------------
-   Contents:
-   01. Design tokens
-   02. Base & reset
-   03. Page frame
-   04. Typography
-   05. Buttons & links
-   06. Header bar (consistent, solid dark)
-   07. Hero (dark band: headline, copy, portrait, steps rail)
-   08. Numbered feature rows + overlapping panel
-   09. Project image tiles (static)
-   10. CTA band
-   11. Footer band
-   12. Timeline
-   13. Cards, chips & "now" panel
-   14. Forms, accordion, modal, toast
-   15. Page heroes (dark band)
-   16. Decorations (sparkles, shapes, badge)
-   17. Animations (keyframes & reveal states)
-   18. View transitions & reduced motion
-   ============================================================ */
+/* Global design system: tokens, themes, layout, components and motion. */
 
-/* ------------------------------------------------------------
-   01. Design tokens
------------------------------------------------------------- */
 :root {
-  /* Typography */
   --font-display: "Anton", "Arial Narrow", sans-serif;
   --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
 
-  /* Fluid type scale */
   --fs-hero-line: clamp(2.7rem, 5.4vw + 1rem, 5.4rem);
   --fs-h1: clamp(2.4rem, 4.4vw + 0.7rem, 4.1rem);
   --fs-h2: clamp(1.9rem, 2.9vw + 0.6rem, 3rem);
   --fs-h3: clamp(1.25rem, 0.8vw + 0.95rem, 1.5rem);
   --fs-lead: clamp(1.02rem, 0.35vw + 0.95rem, 1.2rem);
 
-  /* Shape — cards keep soft corners, bands are sharp */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 18px;
@@ -56,7 +18,6 @@
   --radius-pill: 999px;
   --section-pad: clamp(4rem, 8vw, 6.25rem);
 
-  /* Motion */
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --dur-fast: 0.25s;
@@ -64,7 +25,6 @@
   --dur-slow: 0.8s;
 }
 
-/* Light theme */
 :root,
 [data-theme="light"] {
   color-scheme: light;
@@ -75,28 +35,27 @@
   --clr-text: #121212;
   --clr-text-soft: #554e5c;
   --clr-text-faint: #8a8392;
-  --clr-accent: #6b21a8;          /* reference deep purple */
+  --clr-accent: #6b21a8;
   --clr-accent-strong: #581c87;
-  --clr-accent-bright: #c08bea;   /* readable purple on dark bands */
+  --clr-accent-bright: #c08bea;
   --clr-accent-soft: #efe2f9;
-  --clr-accent-2: #f4c66a;        /* reference amber */
+  --clr-accent-2: #f4c66a;
   --clr-accent-2-soft: #fdf2dd;
   --clr-accent-2-strong: #6b21a8;
   --clr-accent-3: #f4c66a;
   --clr-accent-3-strong: #e2ab45;
   --clr-accent-3-soft: #fdf2dd;
   --clr-on-accent: #ffffff;
-  --clr-header: #121212;      /* solid dark header bar */
-  --clr-band: #121212;        /* dark full-bleed band  */
-  --clr-panel: #5b1b32;       /* wine band (CTA)       */
-  --clr-panel-2: #4a1526;     /* footer wine accent    */
+  --clr-header: #121212;
+  --clr-band: #121212;
+  --clr-panel: #5b1b32;
+  --clr-panel-2: #4a1526;
   --clr-on-panel: #ffffff;
   --clr-border: rgba(18, 18, 18, 0.12);
   --clr-border-strong: rgba(18, 18, 18, 0.26);
   --shadow-md: 0 16px 36px -18px rgba(18, 18, 18, 0.25);
 }
 
-/* Dark theme */
 [data-theme="dark"] {
   color-scheme: dark;
   --clr-bg: #121212;
@@ -127,9 +86,6 @@
   --shadow-md: 0 16px 36px -18px rgba(0, 0, 0, 0.55);
 }
 
-/* ------------------------------------------------------------
-   02. Base & reset
------------------------------------------------------------- */
 html {
   scroll-behavior: smooth;
 }
@@ -169,7 +125,6 @@ img {
   max-width: 100%;
 }
 
-/* Smooth theme change on common components */
 .page-frame,
 .site-header,
 .site-footer,
@@ -185,7 +140,6 @@ img {
     border-color var(--dur-med) ease;
 }
 
-/* Skip link (a11y) */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -209,9 +163,6 @@ img {
   scroll-margin-top: var(--header-h, 72px);
 }
 
-/* ------------------------------------------------------------
-   03. Page shell — full-bleed, no outer card
------------------------------------------------------------- */
 .page-frame {
   width: 100%;
   margin: 0;
@@ -223,9 +174,6 @@ img {
   overflow: clip;
 }
 
-/* Dot grid — the page-wide technical backdrop.
-   The major tile is an exact multiple of the minor tile and both share the
-   same dot origin, so every 4th dot sits precisely on a minor dot. */
 :root {
   --grid-cell: 24px;
   --grid-cell-major: 96px;
@@ -257,7 +205,6 @@ img {
   --grid-dot-major: rgba(255, 255, 255, 0.13);
 }
 
-/* Same dot grid, inverted, for the dark and wine bands */
 .band-dark,
 .band-cta,
 .site-footer {
@@ -265,19 +212,16 @@ img {
   background-size: var(--grid-dots-size);
 }
 
-/* Shared vertical rhythm so stacked sections never touch each other */
 .section,
 .band-features {
   padding-block: clamp(2.5rem, 4.5vw, 3.5rem);
 }
 
-/* A little more air between the card grids */
 .row.g-4 {
   --bs-gutter-x: 2rem;
   --bs-gutter-y: 2rem;
 }
 
-/* Dark full-bleed band (hero, page heroes, hot rows) */
 .band-dark {
   background-color: var(--clr-band);
   color: #ffffff;
@@ -294,9 +238,6 @@ img {
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* ------------------------------------------------------------
-   04. Typography — Anton display for headings
------------------------------------------------------------- */
 h1,
 h2 {
   font-family: var(--font-display);
@@ -323,15 +264,12 @@ h2 {
   transition: color var(--dur-med) ease;
 }
 
-/* Colored word inside Anton headings — flat, no chip */
-/* (overrides Bootstrap's built-in .mark highlight utility) */
 .mark {
   --bs-highlight-bg: transparent;
   background: transparent;
   color: var(--clr-accent);
 }
 
-/* Amber emphasis on purple bands */
 .mark-on-dark {
   color: var(--clr-accent-3);
 }
@@ -384,9 +322,6 @@ h2 {
   color: var(--clr-accent);
 }
 
-/* ------------------------------------------------------------
-   05. Buttons & links — pill + circle pair (Finguard signature)
------------------------------------------------------------- */
 .btn {
   font-family: var(--font-body);
   font-weight: 600;
@@ -446,7 +381,6 @@ h2 {
   transform: translateY(-2px);
 }
 
-/* White pill for use on purple bands */
 .btn-light {
   background: #ffffff;
   color: #222222;
@@ -460,7 +394,6 @@ h2 {
   transform: translateY(-2px);
 }
 
-/* Outline pill for dark bands */
 .btn-ghost-light {
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.5);
@@ -475,7 +408,6 @@ h2 {
   transform: translateY(-2px);
 }
 
-/* Circular arrow button */
 .btn-circle {
   flex: 0 0 auto;
   width: 3.1rem;
@@ -527,9 +459,6 @@ h2 {
   transform: translateX(5px);
 }
 
-/* ------------------------------------------------------------
-   06. Header — consistent solid dark bar (Finguard reference)
------------------------------------------------------------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -549,12 +478,10 @@ h2 {
   align-items: center;
 }
 
-/* Keep header actions (socials, theme toggle, CTA) comfortably apart */
 .nav-actions {
   gap: 0.65rem;
 }
 
-/* Slim header: keep the bar compact so it steals less vertical space */
 .site-header .btn {
   padding: 0.5rem 1.25rem;
   font-size: 0.9rem;
@@ -645,7 +572,6 @@ h2 {
   background: var(--clr-accent-bright);
 }
 
-/* Theme toggle on the dark header */
 .theme-toggle {
   flex: 0 0 auto;
   width: 34px;
@@ -691,9 +617,6 @@ h2 {
   transform: rotate(-120deg) scale(0.3);
 }
 
-/* ------------------------------------------------------------
-   07. Hero — dark band: huge headline, copy, photo, steps rail
------------------------------------------------------------- */
 .hero {
   position: relative;
   padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.25rem, 6vw, 4.75rem);
@@ -775,17 +698,10 @@ h2 {
   color: #121212;
 }
 
-/* ------------------------------------------------------------
-   Hero profile card — arch viewfinder
-   Layout ported 1:1 from the supplied design: a violet arch panel,
-   a gold keyline offset behind it, SVG HUD layers and a cutout photo
-   that rises from the bottom edge. Width, offset and photo are all
-   driven by --w / --off / height %, so it scales as one unit.
------------------------------------------------------------- */
 .hero-card {
-  --w: clamp(230px, 26vw, 315px);        /* card width: scales with the screen */
-  --off: calc(var(--w) * 0.05);            /* gold frame offset */
-  --radius: 50% 50% 26px 26px / 36.2% 36.2% 26px 26px;   /* arch shape */
+  --w: clamp(230px, 26vw, 315px);
+  --off: calc(var(--w) * 0.05);
+  --radius: 50% 50% 26px 26px / 36.2% 36.2% 26px 26px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --gold: #f2c14e;
   --violet-1: #be68ff;
@@ -797,12 +713,11 @@ h2 {
   margin: 0 auto calc(var(--off) + 0.75rem);
 }
 
-/* Gold outline frame behind the card */
 .hero-card .frame {
   position: absolute; inset: 0;
   border: 2px solid var(--gold);
   border-radius: var(--radius);
-  translate: var(--off) var(--off);          /* offset down-right; uses 'translate' so the fade-in can't cancel it */
+  translate: var(--off) var(--off);
   transition: translate .5s var(--ease);
 }
 
@@ -810,7 +725,6 @@ h2 {
   translate: calc(var(--off) * 1.3) calc(var(--off) * 1.3);
 }
 
-/* Gradient arch panel */
 .hero-card .panel {
   position: absolute; inset: 0;
   border-radius: var(--radius);
@@ -820,7 +734,6 @@ h2 {
     linear-gradient(155deg, var(--violet-1) 0%, var(--violet-2) 100%);
 }
 
-/* SVG layers: one behind the photo, one in front */
 .hero-card .layer {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -834,11 +747,10 @@ h2 {
   overflow: hidden;
 }
 
-/* Photo: rises from the bottom edge; head pokes above the arch */
 .hero-card .photo-wrap {
   position: absolute; z-index: 2;
   left: 0; right: 0; bottom: 0; top: -15%;
-  overflow: hidden;                          /* clips the photo at the card's bottom edge */
+  overflow: hidden;
   pointer-events: none;
 }
 
@@ -860,7 +772,6 @@ h2 {
           mask-image: linear-gradient(to top, transparent 0, #000 7%);
 }
 
-/* SVG text + pen-tool styling */
 .hero-card .mono {
   font-family: 'Space Mono', ui-monospace, Menlo, Consolas, monospace;
   font-weight: 700;
@@ -871,8 +782,6 @@ h2 {
   stroke-dashoffset: 1;
 }
 
-/* ========= Entrance ========= */
-/* Hidden start state, only when JS is running */
 .js .hero-card .frame,
 .js .hero-card .panel,
 .js .hero-card .layer-front,
@@ -921,7 +830,6 @@ h2 {
   animation: hc-fade-in .6s .35s ease both;
 }
 
-/* Main moment: the cutout rises 60px into place */
 .hero-card.in .photo {
   animation: hc-photo-rise .9s .45s var(--ease) both;
 }
@@ -938,14 +846,12 @@ h2 {
   animation: hc-blink 1.4s 1.5s ease-in-out infinite;
 }
 
-/* ========= Small screens ========= */
 @media (max-width: 480px) {
   .hero-card .readout {
     display: none;
   }
 }
 
-/* ========= Reduced motion: show the final state, no movement ========= */
 @media (prefers-reduced-motion: reduce) {
   .hero-card *,
   .hero-card *::before {
@@ -966,7 +872,6 @@ h2 {
   }
 }
 
-/* Steps rail (Finguard's numbered hero steps) */
 .hero-steps {
   display: flex;
   flex-direction: column;
@@ -1020,9 +925,6 @@ h2 {
   transform: translate(2px, -2px);
 }
 
-/* ------------------------------------------------------------
-   08. Numbered feature rows + overlapping panel
------------------------------------------------------------- */
 .band-features {
   position: relative;
 }
@@ -1132,16 +1034,12 @@ h2 {
   color: #121212;
 }
 
-/* Clickable feature rows */
 a.feature-row {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* ------------------------------------------------------------
-   09. Project image tiles — static images (no card animation)
------------------------------------------------------------- */
 .band-soft {
   background: var(--clr-bg-soft);
   transition: background-color var(--dur-med) ease;
@@ -1197,9 +1095,6 @@ a.feature-row {
   color: var(--clr-text-faint);
 }
 
-/* ------------------------------------------------------------
-   09b. Project cards (projects page) — compact
------------------------------------------------------------- */
 .project-card {
   padding: 0;
 }
@@ -1266,7 +1161,6 @@ a.feature-row {
   gap: 0.5rem;
 }
 
-/* Keep tags from hugging the paragraph above them */
 .card-x .tag-row {
   margin-top: 1.15rem;
 }
@@ -1313,7 +1207,6 @@ a.feature-row {
   font-size: 0.85rem;
 }
 
-/* Filter tabs with counts */
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -1381,15 +1274,11 @@ a.feature-row {
   animation: card-in 0.5s var(--ease-out) backwards;
 }
 
-/* Tinted sections */
 .section-soft {
   background: var(--clr-bg-soft);
   transition: background-color var(--dur-med) ease;
 }
 
-/* ------------------------------------------------------------
-   10. CTA band — solid wine, sharp edges
------------------------------------------------------------- */
 .band-cta {
   background-color: var(--clr-panel);
   color: var(--clr-on-panel);
@@ -1430,9 +1319,6 @@ a.feature-row {
   color: #222222;
 }
 
-/* ------------------------------------------------------------
-   11. Footer — purple band with giant brand text
------------------------------------------------------------- */
 .site-footer {
   position: relative;
   background-color: var(--clr-band);
@@ -1588,7 +1474,6 @@ a.feature-row {
   margin: 0;
 }
 
-/* Social buttons (default context: light surfaces) */
 .social-btn {
   width: 2.5rem;
   height: 2.5rem;
@@ -1612,7 +1497,6 @@ a.feature-row {
   transform: translateY(-3px) scale(1.08);
 }
 
-/* Back to top */
 .back-top {
   position: fixed;
   right: 1.4rem;
@@ -1646,9 +1530,6 @@ a.feature-row {
   transform: translateY(-3px);
 }
 
-/* ------------------------------------------------------------
-   12. Timeline
------------------------------------------------------------- */
 .timeline {
   position: relative;
   padding-left: 2.1rem;
@@ -1742,9 +1623,6 @@ a.feature-row {
   margin-bottom: 0;
 }
 
-/* ------------------------------------------------------------
-   13. Cards, chips & "now" panel
------------------------------------------------------------- */
 .card-x {
   position: relative;
   display: flex;
@@ -1929,9 +1807,6 @@ a.feature-row {
   padding-top: 0.15em;
 }
 
-/* ------------------------------------------------------------
-   14. Forms, accordion, modal, toast
------------------------------------------------------------- */
 .form-label {
   font-weight: 600;
   font-size: 0.9rem;
@@ -1992,7 +1867,6 @@ a.feature-row {
   animation-delay: 0.3s;
 }
 
-/* Accordion */
 .accordion-item {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
@@ -2039,7 +1913,6 @@ a.feature-row {
   padding-top: 0;
 }
 
-/* Modal */
 .modal-content {
   background: var(--clr-surface);
   border: 1px solid var(--clr-border);
@@ -2070,7 +1943,6 @@ a.feature-row {
   display: block;
 }
 
-/* Show the full artwork instead of cropping it */
 .modal-media-contain {
   aspect-ratio: auto;
   max-height: 62vh;
@@ -2117,7 +1989,6 @@ a.feature-row {
   filter: invert(1) grayscale(100%) brightness(200%);
 }
 
-/* Toast */
 .toast-container {
   z-index: 1090;
 }
@@ -2145,9 +2016,6 @@ a.feature-row {
   color: var(--clr-text-soft);
 }
 
-/* ------------------------------------------------------------
-   15. Page heroes — dark band, Anton headline
------------------------------------------------------------- */
 .page-hero {
   position: relative;
   padding: clamp(3.25rem, 7vw, 5rem) clamp(1.5rem, 4vw, 3.5rem);
@@ -2182,7 +2050,6 @@ a.feature-row {
   background: var(--clr-bg-soft);
 }
 
-/* Soft bands keep the dot texture instead of flattening to a solid block */
 .section-soft,
 .band-soft,
 .bg-soft {
@@ -2190,7 +2057,6 @@ a.feature-row {
   background-size: var(--grid-dots-size);
 }
 
-/* Contact info cards */
 .info-card {
   display: flex;
   gap: 1.1rem;
@@ -2236,7 +2102,6 @@ a.feature-row {
   transform: translateY(-1px);
 }
 
-/* About-page signature */
 .sig {
   font-family: var(--font-body);
   font-style: italic;
@@ -2247,11 +2112,6 @@ a.feature-row {
   margin-bottom: 0;
 }
 
-/* ------------------------------------------------------------
-   17. Animations — keyframes & reveal states
------------------------------------------------------------- */
-
-/* Entrance/scroll reveal (JS adds .in-view; html.js gates initial hidden state) */
 .js [data-animate] {
   opacity: 0;
   transition: opacity var(--dur-slow) var(--ease-out),
@@ -2332,34 +2192,24 @@ a.feature-row {
   }
 }
 
-/* Gentle page fade-in on load (skipped when View Transitions handle it) */
 html:not(.vt):not(.page-leaving) body {
   animation: page-in 0.25s ease both;
 }
 
-/* Parallax targets get smooth movement */
 [data-parallax] {
   transition: translate 0.25s ease-out;
 }
 
-/* ------------------------------------------------------------
-   18. View transitions & reduced motion
------------------------------------------------------------- */
 @view-transition {
   navigation: auto;
 }
 
-/* Theme toggle: circle reveal driven by JS via WAAPI */
 html.theme-transitioning::view-transition-old(root),
 html.theme-transitioning::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
 
-/* Snappy reveal for ordinary page-to-page navigation.
-   The outgoing snapshot stays fully opaque until the new page is ready,
-   then the incoming snapshot fades in on top. This avoids the white
-   canvas flashing through mid-transition or a double fade. */
 @keyframes vt-page-in {
   from {
     opacity: 0;
@@ -2379,7 +2229,6 @@ html.theme-transitioning::view-transition-new(root) {
   animation: vt-page-in 0.2s ease-out both;
 }
 
-/* Suppress ordinary CSS transitions while a snapshot is taken */
 html.no-anim *,
 html.no-anim *::before,
 html.no-anim *::after {
@@ -2409,7 +2258,6 @@ html.no-anim *::after {
     translate: 0 0 !important;
   }
 
-  /* No cross-document crossfade either — the new page just appears */
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none !important;
